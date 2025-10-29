@@ -4,6 +4,8 @@ import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { PageHero, SectionHeader, ReviewCard } from '@/components/shared';
+import { useContactForm } from '@/hooks/use-contact-form';
 
 const reviewsData = [
   // 5 stars - 22 reviews
@@ -44,6 +46,8 @@ const reviewsData = [
 ];
 
 const Reviews = () => {
+  const { formData, isSubmitting, handleChange, handleSubmit } = useContactForm();
+  
   // Calculate statistics
   const totalReviews = reviewsData.length;
   const fiveStars = reviewsData.filter(r => r.rating === 5).length;
@@ -59,17 +63,16 @@ const Reviews = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
+      <PageHero 
+        title="Отзывы наших клиентов" 
+        description="Более 500 положительных отзывов"
+      />
+      
+      <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Отзывы наших клиентов
-              </h1>
-              <p className="text-lg text-muted-foreground">Более 500 положительных отзывов</p>
-            </div>
 
-            <Card className="border-0 shadow-2xl bg-card max-w-4xl mx-auto mb-12">
+            <Card className="border-0 shadow-2xl bg-card max-w-4xl mx-auto mb-16">
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   <div className="text-center md:text-left md:border-r md:pr-8 md:border-border">
@@ -143,35 +146,14 @@ const Reviews = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {reviewsData.map((review) => (
-                <Card key={review.id} className="border-0 shadow-xl bg-card hover:shadow-2xl transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg flex-shrink-0">
-                        {review.initials}
-                      </div>
-                      <div className="min-w-0">
-                        <CardTitle className="text-base truncate">{review.name}</CardTitle>
-                        <div className="flex text-secondary mt-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Icon 
-                              key={i} 
-                              name="Star" 
-                              size={14} 
-                              fill={i < review.rating ? "currentColor" : "none"}
-                              className={i < review.rating ? "" : "text-muted-foreground"}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-xs text-muted-foreground">{review.date}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {review.text}
-                    </p>
-                  </CardContent>
-                </Card>
+                <ReviewCard
+                  key={review.id}
+                  name={review.name}
+                  rating={review.rating}
+                  date={review.date}
+                  text={review.text}
+                  verified={true}
+                />
               ))}
             </div>
 

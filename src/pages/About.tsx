@@ -4,22 +4,21 @@ import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { PageHero, SectionHeader, FeatureCard, StatCard } from '@/components/shared';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
+      <PageHero 
+        title="О нашем магазине" 
+        description="15 лет экспертизы в мире китайского антиквариата"
+      />
+      
+      <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                О нашем магазине
-              </h1>
-              <p className="text-lg text-muted-foreground">15 лет экспертизы в мире китайского антиквариата</p>
-            </div>
-
             <div className="space-y-12">
               <Card className="border-0 shadow-xl bg-card">
                 <CardHeader>
@@ -50,42 +49,30 @@ const About = () => {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name="Users" className="text-primary" size={24} />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-lg mb-1">1,200+ клиентов</div>
-                        <p className="text-sm text-muted-foreground">Из России, Европы и Азии доверяют нам</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name="Package" className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-lg mb-1">3,500+ сделок</div>
-                        <p className="text-sm text-muted-foreground">Успешно проведённых за 15 лет</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name="Globe" className="text-primary" size={24} />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-lg mb-1">12 стран</div>
-                        <p className="text-sm text-muted-foreground">География наших клиентов</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name="Star" className="text-secondary" size={24} />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-lg mb-1">98% повторных</div>
-                        <p className="text-sm text-muted-foreground">Клиенты возвращаются к нам снова</p>
-                      </div>
-                    </div>
+                    <FeatureCard
+                      icon="Users"
+                      title="1,200+ клиентов"
+                      description="Из России, Европы и Азии доверяют нам"
+                      iconColor="text-primary"
+                    />
+                    <FeatureCard
+                      icon="Package"
+                      title="3,500+ сделок"
+                      description="Успешно проведённых за 15 лет"
+                      iconColor="text-secondary"
+                    />
+                    <FeatureCard
+                      icon="Globe"
+                      title="12 стран"
+                      description="География наших клиентов"
+                      iconColor="text-primary"
+                    />
+                    <FeatureCard
+                      icon="Star"
+                      title="98% повторных"
+                      description="Клиенты возвращаются к нам снова"
+                      iconColor="text-secondary"
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -98,34 +85,34 @@ const About = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-primary/5">
-                    <Icon name="CheckCircle" className="text-primary flex-shrink-0 mt-1" size={24} />
-                    <div>
-                      <div className="font-semibold mb-1">Экспертиза каждого предмета</div>
-                      <p className="text-sm text-muted-foreground">Все артефакты проходят проверку у сертифицированных экспертов с выдачей заключения и сертификата подлинности.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-secondary/5">
-                    <Icon name="FileCheck" className="text-secondary flex-shrink-0 mt-1" size={24} />
-                    <div>
-                      <div className="font-semibold mb-1">Полная документация</div>
-                      <p className="text-sm text-muted-foreground">К каждому предмету прилагается подробная история происхождения, фотофиксация, экспертное заключение и все необходимые таможенные документы.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-primary/5">
-                    <Icon name="Truck" className="text-primary flex-shrink-0 mt-1" size={24} />
-                    <div>
-                      <div className="font-semibold mb-1">Безопасная доставка</div>
-                      <p className="text-sm text-muted-foreground">Специальная упаковка с учётом хрупкости предмета, полное страхование, доставка по всему миру с трекингом.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-secondary/5">
-                    <Icon name="Headphones" className="text-secondary flex-shrink-0 mt-1" size={24} />
-                    <div>
-                      <div className="font-semibold mb-1">Персональная поддержка</div>
-                      <p className="text-sm text-muted-foreground">Консультации по выбору, оценке, уходу за предметами. Помогаем формировать коллекции мирового уровня.</p>
-                    </div>
-                  </div>
+                  <FeatureCard
+                    icon="CheckCircle"
+                    title="Экспертиза каждого предмета"
+                    description="Все артефакты проходят проверку у сертифицированных экспертов с выдачей заключения и сертификата подлинности."
+                    iconColor="text-primary"
+                    className="p-4 rounded-xl bg-primary/5"
+                  />
+                  <FeatureCard
+                    icon="FileCheck"
+                    title="Полная документация"
+                    description="К каждому предмету прилагается подробная история происхождения, фотофиксация, экспертное заключение и все необходимые таможенные документы."
+                    iconColor="text-secondary"
+                    className="p-4 rounded-xl bg-secondary/5"
+                  />
+                  <FeatureCard
+                    icon="Truck"
+                    title="Безопасная доставка"
+                    description="Специальная упаковка с учётом хрупкости предмета, полное страхование, доставка по всему миру с трекингом."
+                    iconColor="text-primary"
+                    className="p-4 rounded-xl bg-primary/5"
+                  />
+                  <FeatureCard
+                    icon="Headphones"
+                    title="Персональная поддержка"
+                    description="Консультации по выбору, оценке, уходу за предметами. Помогаем формировать коллекции мирового уровня."
+                    iconColor="text-secondary"
+                    className="p-4 rounded-xl bg-secondary/5"
+                  />
                 </CardContent>
               </Card>
 

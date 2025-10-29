@@ -1,41 +1,29 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
-import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
+import { PageHero, ContactInfoItem } from '@/components/shared';
+import { useContactForm } from '@/hooks/use-contact-form';
 
 const Contacts = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в ближайшее время.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
+  const { formData, isSubmitting, handleChange, handleSubmit } = useContactForm();
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
+      <PageHero 
+        title="Контакты" 
+        description="Будем рады ответить на ваши вопросы"
+      />
+      
+      <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Контакты
-              </h1>
-              <p className="text-lg text-muted-foreground">Будем рады ответить на ваши вопросы</p>
-            </div>
-
             <div className="space-y-12">
               <section>
                 <h2 className="text-3xl font-bold mb-8 text-center">Часто задаваемые вопросы</h2>
@@ -142,45 +130,29 @@ const Contacts = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Icon name="Home" className="text-primary" size={24} />
-                        </div>
-                        <div>
-                          <div className="font-semibold mb-1">Адрес шоурума</div>
-                          <p className="text-sm text-muted-foreground">Москва, ул. Петровка, д. 24, стр. 1<br/>Метро: Театральная, Охотный ряд</p>
-                        </div>
-                      </div>
+                      <ContactInfoItem
+                        icon="Home"
+                        title="Адрес шоурума"
+                        content={['Москва, ул. Петровка, д. 24, стр. 1', 'Метро: Театральная, Охотный ряд']}
+                      />
 
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                          <Icon name="Phone" className="text-secondary" size={24} />
-                        </div>
-                        <div>
-                          <div className="font-semibold mb-1">Телефон</div>
-                          <p className="text-sm text-muted-foreground">+7 (495) 123-45-67<br/>+7 (925) 888-99-00</p>
-                        </div>
-                      </div>
+                      <ContactInfoItem
+                        icon="Phone"
+                        title="Телефон"
+                        content={['+7 (495) 123-45-67', '+7 (925) 888-99-00']}
+                      />
 
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Icon name="Mail" className="text-primary" size={24} />
-                        </div>
-                        <div>
-                          <div className="font-semibold mb-1">Email</div>
-                          <p className="text-sm text-muted-foreground">info@luntan-antiques.ru<br/>expert@luntan-antiques.ru</p>
-                        </div>
-                      </div>
+                      <ContactInfoItem
+                        icon="Mail"
+                        title="Email"
+                        content={['info@luntan-antiques.ru', 'expert@luntan-antiques.ru']}
+                      />
 
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                          <Icon name="Clock" className="text-secondary" size={24} />
-                        </div>
-                        <div>
-                          <div className="font-semibold mb-1">Время работы</div>
-                          <p className="text-sm text-muted-foreground">Пн-Пт: 11:00 - 19:00<br/>Сб: 12:00 - 17:00<br/>Вс: по предварительной записи</p>
-                        </div>
-                      </div>
+                      <ContactInfoItem
+                        icon="Clock"
+                        title="Время работы"
+                        content={['Пн-Пт: 11:00 - 19:00', 'Сб: 12:00 - 17:00', 'Вс: по предварительной записи']}
+                      />
                     </CardContent>
                   </Card>
 
@@ -193,7 +165,7 @@ const Contacts = () => {
                           <Input 
                             placeholder="Иван Петров" 
                             value={formData.name}
-                            onChange={(e) => setFormData({...formData, name: e.target.value})}
+                            onChange={(e) => handleChange('name', e.target.value)}
                             required
                             className="h-12 text-base"
                           />
@@ -204,7 +176,7 @@ const Contacts = () => {
                             type="email" 
                             placeholder="ivan@example.com"
                             value={formData.email}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
+                            onChange={(e) => handleChange('email', e.target.value)}
                             required
                             className="h-12 text-base"
                           />
@@ -215,7 +187,7 @@ const Contacts = () => {
                             type="tel" 
                             placeholder="+7 (999) 123-45-67"
                             value={formData.phone}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                            onChange={(e) => handleChange('phone', e.target.value)}
                             required
                             className="h-12 text-base"
                           />
@@ -226,16 +198,17 @@ const Contacts = () => {
                             placeholder="Ваш вопрос или пожелание..." 
                             rows={5}
                             value={formData.message}
-                            onChange={(e) => setFormData({...formData, message: e.target.value})}
+                            onChange={(e) => handleChange('message', e.target.value)}
                             required
                             className="text-base resize-none"
                           />
                         </div>
                         <Button 
                           type="submit" 
-                          className="w-full bg-primary hover:bg-primary/90 h-12 text-base font-semibold" 
+                          className="w-full bg-primary hover:bg-primary/90 h-12 text-base font-semibold"
+                          disabled={isSubmitting}
                         >
-                          Отправить
+                          {isSubmitting ? 'Отправка...' : 'Отправить'}
                           <Icon name="Send" className="ml-2" size={18} />
                         </Button>
                       </form>

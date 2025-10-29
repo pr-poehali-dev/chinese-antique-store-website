@@ -34,16 +34,8 @@ export const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-primary/10 relative overflow-hidden shadow-sm">
-      <div className="absolute inset-0 bg-card/95"></div>
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-96 opacity-[0.08]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='80' viewBox='0 0 200 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dc143c'%3E%3Cpath d='M100,15 L105,25 L115,25 L107,32 L110,42 L100,35 L90,42 L93,32 L85,25 L95,25 Z'/%3E%3Cpath d='M70,40 Q75,30 80,40 T90,40' fill='none' stroke='%23dc143c' stroke-width='1.5'/%3E%3Cpath d='M110,40 Q115,30 120,40 T130,40' fill='none' stroke='%23dc143c' stroke-width='1.5'/%3E%3Ccircle cx='65' cy='40' r='4' fill='%23daa520'/%3E%3Ccircle cx='135' cy='40' r='4' fill='%23daa520'/%3E%3Cpath d='M95,55 L97,60 L102,60 L98,63 L100,68 L95,65 L90,68 L92,63 L88,60 L93,60 Z' fill='%23daa520' opacity='0.6'/%3E%3Cpath d='M105,55 L107,60 L112,60 L108,63 L110,68 L105,65 L100,68 L102,63 L98,60 L103,60 Z' fill='%23daa520' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E")`,
-        backgroundSize: '200px 80px',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
-      }}></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-card/98 border-b border-border shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <button onClick={handleLogoClick} className="flex items-center gap-2.5 group">

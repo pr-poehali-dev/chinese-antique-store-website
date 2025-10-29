@@ -36,7 +36,7 @@ export const catalogData: Record<string, CatalogItem[]> = {
     { id: 24, name: 'Статуя Гуаньинь бронзовая', price: '298 000', period: 'XVI век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7529fb9b-5365-4f3b-a33c-9eb4150591b2.jpg' },
   ],
   painting: [
-    { id: 4, name: 'Свиток с горным пейзажем', price: '156 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/4bb1dc5b-a792-4501-a4c4-ce0e972071b1.jpg' },
+    { id: 4, name: 'Свиток с горным пейзажем', price: '156 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/01132f1e-1762-491e-bd7d-4fa86ef8f8e0.jpg' },
     { id: 14, name: 'Каллиграфия мастера Чжао', price: '289 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f61dc847-8b47-4d45-b47b-843cd2b2af0a.jpg' },
     { id: 15, name: 'Свиток с цветами и птицами', price: '178 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d59e3de5-f520-45ca-93b0-8a51ad09711d.jpg' },
     { id: 25, name: 'Веер с живописью тушью', price: '67 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/592416c5-4e24-4558-9d3d-9ff22681ae5f.jpg' },

@@ -39,7 +39,7 @@ const catalogItems = [
     name: 'Свиток с горным пейзажем',
     description: 'Живопись тушью на шёлке. Классический пейзаж в стиле шань-шуй с горами, водопадом и павильоном.',
     price: '156 000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/4bb1dc5b-a792-4501-a4c4-ce0e972071b1.jpg',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/01132f1e-1762-491e-bd7d-4fa86ef8f8e0.jpg',
     period: 'XIX век'
   },
   {
@@ -538,6 +538,16 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Link to all reviews */}
+          <div className="text-center mt-12">
+            <Link to="/reviews">
+              <Button variant="outline" size="lg" className="group">
+                Смотреть все отзывы
+                <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
