@@ -77,8 +77,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-xl border-b border-primary/10">
-        <nav className="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-primary/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-card via-primary/5 to-card"></div>
+        <div className="absolute inset-0 opacity-[0.08]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='40' viewBox='0 0 80 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 20 10, 40 20 T 80 20' stroke='%23dc143c' fill='none' stroke-width='0.5'/%3E%3Cpath d='M0 25 Q 20 15, 40 25 T 80 25' stroke='%23daa520' fill='none' stroke-width='0.5'/%3E%3C/svg%3E")`,
+          backgroundSize: '200px 40px',
+          backgroundPosition: 'center'
+        }}></div>
+        <nav className="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between relative z-10">
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="text-2xl sm:text-3xl">🐉</span>
@@ -168,7 +174,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 sm:py-28 lg:py-36 bg-card">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -230,7 +236,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-card to-background">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
@@ -330,7 +336,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="catalog" className="py-20 sm:py-28 lg:py-36 bg-card">
+      <section id="catalog" className="py-12 sm:py-16 lg:py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
@@ -391,7 +397,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-card to-background">
+      <section id="reviews" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
@@ -499,7 +505,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 sm:py-28 lg:py-36 bg-card">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
