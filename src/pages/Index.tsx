@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 
@@ -60,6 +61,7 @@ const catalogItems = [
 
 const Index = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -73,40 +75,71 @@ const Index = () => {
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-primary/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-card via-primary/5 to-card"></div>
-        <div className="absolute inset-0 opacity-[0.08]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='40' viewBox='0 0 80 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 20 10, 40 20 T 80 20' stroke='%23dc143c' fill='none' stroke-width='0.5'/%3E%3Cpath d='M0 25 Q 20 15, 40 25 T 80 25' stroke='%23daa520' fill='none' stroke-width='0.5'/%3E%3C/svg%3E")`,
-          backgroundSize: '200px 40px',
-          backgroundPosition: 'center'
+        <div className="absolute inset-0 bg-gradient-to-r from-card/95 via-card/80 to-card/95"></div>
+        <div className="absolute inset-0 opacity-[0.15]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='80' viewBox='0 0 120 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23dc143c' stroke-width='1'%3E%3Cpath d='M20 40 Q 30 20, 40 40 T 60 40' opacity='0.4'/%3E%3Cpath d='M60 40 Q 70 20, 80 40 T 100 40' opacity='0.4'/%3E%3Ccircle cx='40' cy='40' r='8' fill='%23daa520' opacity='0.3'/%3E%3Ccircle cx='80' cy='40' r='8' fill='%23daa520' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '240px 80px',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'repeat-x'
         }}></div>
-        <nav className="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between relative z-10">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="text-2xl sm:text-3xl">🐉</span>
-              <div>
-                <div className="text-lg sm:text-2xl font-bold text-primary tracking-tight">龍潭古董</div>
-                <div className="text-xs text-muted-foreground -mt-1 hidden sm:block">Лун Тан</div>
-              </div>
+        <nav className="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-10">
+          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2">
+            <span className="text-2xl sm:text-3xl">🐉</span>
+            <div>
+              <div className="text-lg sm:text-xl font-bold text-primary tracking-tight">龍潭古董</div>
+              <div className="text-xs text-muted-foreground -mt-0.5 hidden sm:block">Лун Тан</div>
             </div>
-          </div>
-          <ul className="hidden lg:flex gap-6 xl:gap-10 text-sm font-medium text-foreground/80">
+          </button>
+          
+          <ul className="hidden lg:flex gap-8 text-sm font-medium text-foreground/80">
             <li><button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">О магазине</button></li>
             <li><button onClick={() => scrollToSection('catalog')} className="hover:text-primary transition-colors">Каталог</button></li>
             <li><button onClick={() => scrollToSection('reviews')} className="hover:text-primary transition-colors">Отзывы</button></li>
             <li><button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Контакты</button></li>
           </ul>
-          <Button onClick={() => scrollToSection('contact')} size="default" className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base px-4 sm:px-6">
-            Связаться
-          </Button>
+
+          <div className="flex items-center gap-3">
+            <Button onClick={() => scrollToSection('contact')} size="default" className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground">
+              Связаться
+            </Button>
+            
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="lg:hidden">
+                  <Icon name="Menu" size={24} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] sm:w-[320px]">
+                <div className="flex flex-col gap-6 mt-8">
+                  <button onClick={() => scrollToSection('about')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
+                    О магазине
+                  </button>
+                  <button onClick={() => scrollToSection('catalog')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
+                    Каталог
+                  </button>
+                  <button onClick={() => scrollToSection('reviews')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
+                    Отзывы
+                  </button>
+                  <button onClick={() => scrollToSection('contact')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
+                    Контакты
+                  </button>
+                  <Button onClick={() => scrollToSection('contact')} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-4">
+                    Связаться
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </nav>
       </header>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/5">
+      <section id="hero" className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/5">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.03) 0%, transparent 50%)',
         }}></div>
