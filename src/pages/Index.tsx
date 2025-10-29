@@ -78,23 +78,23 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-xl border-b border-primary/10">
-        <nav className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <span className="text-3xl">🐉</span>
+        <nav className="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-2xl sm:text-3xl">🐉</span>
               <div>
-                <div className="text-2xl font-bold text-primary tracking-tight">龍潭古董</div>
-                <div className="text-xs text-muted-foreground -mt-1">Лун Тан</div>
+                <div className="text-lg sm:text-2xl font-bold text-primary tracking-tight">龍潭古董</div>
+                <div className="text-xs text-muted-foreground -mt-1 hidden sm:block">Лун Тан</div>
               </div>
             </div>
           </div>
-          <ul className="hidden md:flex gap-10 text-sm font-medium text-foreground/80">
+          <ul className="hidden lg:flex gap-6 xl:gap-10 text-sm font-medium text-foreground/80">
             <li><button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">О магазине</button></li>
             <li><button onClick={() => scrollToSection('catalog')} className="hover:text-primary transition-colors">Каталог</button></li>
             <li><button onClick={() => scrollToSection('reviews')} className="hover:text-primary transition-colors">Отзывы</button></li>
             <li><button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Контакты</button></li>
           </ul>
-          <Button onClick={() => scrollToSection('contact')} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button onClick={() => scrollToSection('contact')} size="default" className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base px-4 sm:px-6">
             Связаться
           </Button>
         </nav>
@@ -105,29 +105,29 @@ const Index = () => {
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.03) 0%, transparent 50%)',
         }}></div>
         
-        <div className="container mx-auto px-4 py-32 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8 inline-flex items-center gap-2 px-5 py-2 bg-primary/5 border border-primary/20 rounded-full text-sm font-medium text-primary">
+        <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32 relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 bg-primary/5 border border-primary/20 rounded-full text-xs sm:text-sm font-medium text-primary">
               <span>✦</span>
               <span>Аутентичные сокровища Китая</span>
               <span>✦</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight px-2">
+              <span className="bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent inline-block">
                 Императорский антиквариат
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed font-light px-4">
               Редчайшие артефакты династий Мин и Цин с подтверждённой историей и сертификатами подлинности
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-4">
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('catalog')} 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 py-7 shadow-xl"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base sm:text-lg px-6 sm:px-10 py-5 sm:py-7 shadow-xl w-full sm:w-auto"
               >
                 Смотреть коллекцию
                 <Icon name="ArrowRight" className="ml-2" size={20} />
@@ -136,7 +136,7 @@ const Index = () => {
                 size="lg" 
                 variant="outline" 
                 onClick={() => scrollToSection('about')} 
-                className="text-lg px-10 py-7 border-2 hover:bg-primary/5"
+                className="text-base sm:text-lg px-6 sm:px-10 py-5 sm:py-7 border-2 hover:bg-primary/5 w-full sm:w-auto"
               >
                 О магазине
               </Button>
@@ -145,35 +145,35 @@ const Index = () => {
         </div>
         
         <div className="border-t border-primary/10 bg-card/50 backdrop-blur">
-          <div className="container mx-auto px-4 py-8">
-            <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">500+</div>
-                <div className="text-sm text-muted-foreground">Уникальных предметов</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">500+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Уникальных предметов</div>
               </div>
               <div className="text-center border-x border-primary/10">
-                <div className="text-4xl font-bold text-primary mb-2">15 лет</div>
-                <div className="text-sm text-muted-foreground">Опыт на рынке</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">15 лет</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Опыт на рынке</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Гарантия подлинности</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">100%</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Гарантия подлинности</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="py-32 bg-card">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-16 sm:py-24 lg:py-32 bg-card">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="space-y-8">
                 <div>
                   <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                     О магазине
                   </div>
-                  <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                     Коллекция мирового уровня
                   </h2>
                   <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
@@ -232,7 +232,7 @@ const Index = () => {
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Преимущества
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Почему выбирают нас
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
@@ -326,13 +326,13 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="catalog" className="py-32 bg-card">
-        <div className="container mx-auto px-4">
+      <section id="catalog" className="py-16 sm:py-24 lg:py-32 bg-card">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Каталог
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Избранные шедевры
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
@@ -341,7 +341,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
             {catalogItems.map((item) => (
               <Card key={item.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card">
                 <div className="relative overflow-hidden aspect-square bg-muted">
@@ -387,19 +387,19 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-32 bg-gradient-to-b from-card to-background">
-        <div className="container mx-auto px-4">
+      <section id="reviews" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-card to-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Отзывы
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Что говорят наши клиенты
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
             <Card className="border-0 shadow-xl bg-card">
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
@@ -472,14 +472,14 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-32 bg-card">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-card">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
               <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                 Контакты
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 Свяжитесь с нами
               </h2>
               <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
@@ -489,7 +489,7 @@ const Index = () => {
             </div>
 
             <Card className="border-0 shadow-2xl bg-card">
-              <CardContent className="p-10">
+              <CardContent className="p-6 sm:p-8 lg:p-10">
                 <form onSubmit={handleSubmit} className="space-y-7">
                   <div className="space-y-3">
                     <label className="text-sm font-semibold text-foreground">Ваше имя</label>
@@ -543,14 +543,14 @@ const Index = () => {
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               FAQ
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Часто задаваемые вопросы
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </div>
 
           <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-4">
-            <AccordionItem value="item-1" className="border-0 rounded-2xl px-8 py-2 bg-card shadow-lg">
+            <AccordionItem value="item-1" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                 Как проверяется подлинность предметов?
               </AccordionTrigger>
@@ -559,7 +559,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border-0 rounded-2xl px-8 py-2 bg-card shadow-lg">
+            <AccordionItem value="item-2" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                 Какие гарантии вы предоставляете?
               </AccordionTrigger>
@@ -568,7 +568,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border-0 rounded-2xl px-8 py-2 bg-card shadow-lg">
+            <AccordionItem value="item-3" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                 Как происходит доставка?
               </AccordionTrigger>
@@ -577,7 +577,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="border-0 rounded-2xl px-8 py-2 bg-card shadow-lg">
+            <AccordionItem value="item-4" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                 Можно ли купить в рассрочку?
               </AccordionTrigger>
@@ -586,7 +586,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="border-0 rounded-2xl px-8 py-2 bg-card shadow-lg">
+            <AccordionItem value="item-5" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                 Помогаете ли с оценкой коллекции?
               </AccordionTrigger>
@@ -598,9 +598,9 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-gradient-to-b from-foreground to-foreground/95 text-background py-20 border-t-4 border-primary">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
+      <footer className="bg-gradient-to-b from-foreground to-foreground/95 text-background py-12 sm:py-16 lg:py-20 border-t-4 border-primary">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
             <div>
               <div className="flex items-center gap-2 mb-5">
                 <span className="text-4xl">🐉</span>
