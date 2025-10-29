@@ -11,33 +11,45 @@ import { Link, useNavigate } from 'react-router-dom';
 const catalogData = {
   'porcelain': [
     { id: 1, name: 'Ваза с драконами династии Мин', price: '128,000', period: 'XV век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2e1518a1-eb0e-425b-a53d-829fd86ef1ea.jpg' },
-    { id: 7, name: 'Чайный сервиз династии Цин', price: '95,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
-    { id: 8, name: 'Тарелка с росписью синим кобальтом', price: '45,000', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2e1518a1-eb0e-425b-a53d-829fd86ef1ea.jpg' },
-    { id: 9, name: 'Ваза с пионами', price: '156,000', period: 'XVI век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
+    { id: 7, name: 'Чайный сервиз с пейзажем', price: '95,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
+    { id: 8, name: 'Тарелка с росписью кобальтом', price: '45,000', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2e1518a1-eb0e-425b-a53d-829fd86ef1ea.jpg' },
+    { id: 9, name: 'Ваза с пионами и птицами', price: '156,000', period: 'XVI век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
+    { id: 19, name: 'Чаша для риса императорская', price: '78,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2e1518a1-eb0e-425b-a53d-829fd86ef1ea.jpg' },
+    { id: 20, name: 'Набор пиал с золотом', price: '134,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
   ],
   'jade': [
     { id: 2, name: 'Нефритовый Будда', price: '245,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg' },
     { id: 10, name: 'Нефритовая подвеска Би', price: '67,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg' },
-    { id: 11, name: 'Резная нефритовая статуэтка', price: '189,000', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg' },
+    { id: 11, name: 'Резная статуэтка дракона', price: '189,000', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg' },
+    { id: 21, name: 'Нефритовый браслет резной', price: '112,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg' },
+    { id: 22, name: 'Печать из белого нефрита', price: '89,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg' },
   ],
   'bronze': [
     { id: 3, name: 'Бронзовая курильница с драконами', price: '89,500', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7c2996c3-1e7f-46e8-b5cd-ddca4f50d0a2.jpg' },
     { id: 12, name: 'Бронзовый сосуд для вина', price: '134,000', period: 'XVI век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7c2996c3-1e7f-46e8-b5cd-ddca4f50d0a2.jpg' },
     { id: 13, name: 'Бронзовое зеркало с узорами', price: '56,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7c2996c3-1e7f-46e8-b5cd-ddca4f50d0a2.jpg' },
+    { id: 23, name: 'Колокольчик ритуальный', price: '45,000', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7c2996c3-1e7f-46e8-b5cd-ddca4f50d0a2.jpg' },
+    { id: 24, name: 'Статуя Гуаньинь бронзовая', price: '298,000', period: 'XVI век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7c2996c3-1e7f-46e8-b5cd-ddca4f50d0a2.jpg' },
   ],
   'painting': [
     { id: 4, name: 'Свиток с горным пейзажем', price: '156,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2fef96fa-fca1-455d-ba2c-8c2872105bf6.jpg' },
     { id: 14, name: 'Каллиграфия мастера Чжао', price: '289,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2fef96fa-fca1-455d-ba2c-8c2872105bf6.jpg' },
     { id: 15, name: 'Свиток с цветами и птицами', price: '178,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2fef96fa-fca1-455d-ba2c-8c2872105bf6.jpg' },
+    { id: 25, name: 'Веер с живописью тушью', price: '67,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2fef96fa-fca1-455d-ba2c-8c2872105bf6.jpg' },
+    { id: 26, name: 'Парные свитки Времена года', price: '423,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2fef96fa-fca1-455d-ba2c-8c2872105bf6.jpg' },
   ],
   'wood': [
     { id: 5, name: 'Резная панель с фениксом', price: '67,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg' },
     { id: 16, name: 'Деревянная ширма с резьбой', price: '234,000', period: 'XVII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg' },
-    { id: 17, name: 'Резной столик для чайной церемонии', price: '145,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg' },
+    { id: 17, name: 'Столик для чайной церемонии', price: '145,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg' },
+    { id: 27, name: 'Шкатулка с перламутром', price: '89,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg' },
+    { id: 28, name: 'Подставка под благовония', price: '34,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg' },
   ],
   'enamel': [
     { id: 6, name: 'Перегородчатая эмаль клуазоне', price: '112,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
     { id: 18, name: 'Ваза клуазоне с драконами', price: '198,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
+    { id: 29, name: 'Чайник эмалевый цветочный', price: '134,000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
+    { id: 30, name: 'Блюдо клуазоне большое', price: '178,000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg' },
   ],
 };
 
@@ -110,10 +122,11 @@ const Catalog = () => {
           </Link>
           
           <ul className="hidden lg:flex gap-8 text-sm font-medium text-foreground/80">
-            <li><button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Главная</button></li>
+            <li><Link to="/" className="hover:text-primary transition-colors">Главная</Link></li>
             <li><Link to="/catalog" className="text-primary font-semibold">Каталог</Link></li>
             <li><Link to="/reviews" className="hover:text-primary transition-colors">Отзывы</Link></li>
-            <li><button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Контакты</button></li>
+            <li><Link to="/about" className="hover:text-primary transition-colors">О магазине</Link></li>
+            <li><Link to="/contacts" className="hover:text-primary transition-colors">Контакты</Link></li>
           </ul>
 
           <div className="flex items-center gap-3">
@@ -147,7 +160,7 @@ const Catalog = () => {
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Полный каталог
               </h1>
-              <p className="text-lg text-muted-foreground">Более 500 уникальных предметов китайского искусства</p>
+              <p className="text-lg text-muted-foreground">30 уникальных предметов китайского искусства</p>
             </div>
 
             <div className="flex flex-col lg:flex-row gap-6 mb-8">
