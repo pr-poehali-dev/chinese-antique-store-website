@@ -9,6 +9,9 @@ import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
+import { AnimatedSection } from '@/components/shared';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { useParallax } from '@/hooks/use-parallax';
 
 const catalogItems = [
   {
@@ -40,7 +43,7 @@ const catalogItems = [
     name: 'Свиток с горным пейзажем',
     description: 'Живопись тушью на шёлке. Классический пейзаж в стиле шань-шуй с горами, водопадом и павильоном.',
     price: '156 000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/01132f1e-1762-491e-bd7d-4fa86ef8f8e0.jpg',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/147ce539-7acd-403e-aca8-9cd9d8178956.jpg',
     period: 'XIX век'
   },
   {
@@ -56,7 +59,7 @@ const catalogItems = [
     name: 'Перегородчатая эмаль клуазоне',
     description: 'Ваза с цветочным орнаментом, выполненная в технике перегородчатой эмали. Яркие краски сохранились идеально.',
     price: '112 000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/8091596e-e2cc-4ba5-bc7f-2644ff30c664.jpg',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/fdee163c-93c9-44b1-a9d9-9ccc4be74355.jpg',
     period: 'XIX век'
   }
 ];
@@ -78,18 +81,28 @@ const Index = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const parallaxOffset = useParallax(0.3);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <section id="hero" className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.03) 0%, transparent 50%)',
-        }}></div>
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l5 15h15l-12 9 5 15-13-9-13 9 5-15-12-9h15z' fill='%23dc143c' fill-opacity='1'/%3E%3C/svg%3E")`,
-          backgroundSize: '120px 120px'
-        }}></div>
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.03) 0%, transparent 50%)',
+            transform: `translateY(${parallaxOffset}px)`
+          }}
+        ></div>
+        <div 
+          className="absolute inset-0 opacity-[0.03]" 
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l5 15h15l-12 9 5 15-13-9-13 9 5-15-12-9h15z' fill='%23dc143c' fill-opacity='1'/%3E%3C/svg%3E")`,
+            backgroundSize: '120px 120px',
+            transform: `translateY(${parallaxOffset * 1.5}px)`
+          }}
+        ></div>
         
         <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
@@ -328,40 +341,51 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
-            {catalogItems.map((item) => (
-              <Card key={item.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card">
-                <div className="relative overflow-hidden aspect-square bg-muted">
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur text-primary-foreground px-4 py-2 rounded-xl text-xs font-semibold shadow-lg">
-                    {item.period}
-                  </div>
+            {catalogItems.map((item, index) => {
+              const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+              
+              return (
+                <div
+                  key={item.id}
+                  ref={ref}
+                  className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <Card className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card">
+                    <div className="relative overflow-hidden aspect-square bg-muted">
+                      <img 
+                        src={item.image} 
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur text-primary-foreground px-4 py-2 rounded-xl text-xs font-semibold shadow-lg">
+                        {item.period}
+                      </div>
+                    </div>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-xl leading-tight">{item.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pb-4">
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                        {item.description}
+                      </p>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-bold text-primary">{item.price} ₽</span>
+                      </div>
+                    </CardContent>
+                    <CardFooter className="pt-0">
+                      <Button 
+                        variant="outline" 
+                        className="w-full hover:bg-primary hover:text-primary-foreground transition-all"
+                        onClick={() => scrollToSection('contact')}
+                      >
+                        Запросить информацию
+                      </Button>
+                    </CardFooter>
+                  </Card>
                 </div>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-xl leading-tight">{item.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="pb-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                    {item.description}
-                  </p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-primary">{item.price} ₽</span>
-                  </div>
-                </CardContent>
-                <CardFooter className="pt-0">
-                  <Button 
-                    variant="outline" 
-                    className="w-full hover:bg-primary hover:text-primary-foreground transition-all"
-                    onClick={() => scrollToSection('contact')}
-                  >
-                    Запросить информацию
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center mt-16">
@@ -388,97 +412,132 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            <Card className="border-0 shadow-xl bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-                    АВ
+            {(() => {
+              const { ref: ref1, isVisible: isVisible1 } = useScrollAnimation({ threshold: 0.1 });
+              const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation({ threshold: 0.1 });
+              const { ref: ref3, isVisible: isVisible3 } = useScrollAnimation({ threshold: 0.1 });
+              const { ref: ref4, isVisible: isVisible4 } = useScrollAnimation({ threshold: 0.1 });
+              
+              return (
+                <>
+                  <div
+                    ref={ref1}
+                    className={`${isVisible1 ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: '0ms' }}
+                  >
+                    <Card className="border-0 shadow-xl bg-card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                            АВ
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">Александр Волков</CardTitle>
+                            <div className="flex text-secondary mt-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Icon key={i} name="Star" size={16} fill="currentColor" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          "Приобрёл вазу династии Цин. Качество экспертизы на высочайшем уровне. Все документы в порядке, доставка прошла безупречно. Очень доволен покупкой!"
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Александр Волков</CardTitle>
-                    <div className="flex text-secondary mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Icon key={i} name="Star" size={16} fill="currentColor" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  "Приобрёл вазу династии Цин. Качество экспертизы на высочайшем уровне. Все документы в порядке, доставка прошла безупречно. Очень доволен покупкой!"
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="border-0 shadow-xl bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-                    ЕК
+                  <div
+                    ref={ref2}
+                    className={`${isVisible2 ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: '100ms' }}
+                  >
+                    <Card className="border-0 shadow-xl bg-card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                            ЕК
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">Елена Кузнецова</CardTitle>
+                            <div className="flex text-secondary mt-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Icon key={i} name="Star" size={16} fill="currentColor" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          "Помогли собрать коллекцию нефритовых изделий. Профессиональные консультации, индивидуальный подход. Рекомендую всем ценителям восточного искусства!"
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Елена Кузнецова</CardTitle>
-                    <div className="flex text-secondary mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Icon key={i} name="Star" size={16} fill="currentColor" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  "Помогли собрать коллекцию нефритовых изделий. Профессиональные консультации, индивидуальный подход. Рекомендую всем ценителям восточного искусства!"
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="border-0 shadow-xl bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-                    ДС
+                  <div
+                    ref={ref3}
+                    className={`${isVisible3 ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: '200ms' }}
+                  >
+                    <Card className="border-0 shadow-xl bg-card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                            ДС
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">Дмитрий Соколов</CardTitle>
+                            <div className="flex text-secondary mt-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Icon key={i} name="Star" size={16} fill="currentColor" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          "Третий год работаю с Лун Тан. Надёжность и профессионализм. Каждый предмет — настоящее сокровище. Цены адекватные, учитывая качество и редкость."
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Дмитрий Соколов</CardTitle>
-                    <div className="flex text-secondary mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Icon key={i} name="Star" size={16} fill="currentColor" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  "Третий год работаю с Лун Тан. Надёжность и профессионализм. Каждый предмет — настоящее сокровище. Цены адекватные, учитывая качество и редкость."
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="border-0 shadow-xl bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-                    МП
+                  <div
+                    ref={ref4}
+                    className={`${isVisible4 ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: '300ms' }}
+                  >
+                    <Card className="border-0 shadow-xl bg-card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                            МП
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">Мария Петрова</CardTitle>
+                            <div className="flex text-secondary mt-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Icon key={i} name="Star" size={16} fill="currentColor" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          "Приобрела свиток с живописью. Восхитительная работа! Эксперты помогли с оформлением и рассказали всю историю предмета. Сервис на высшем уровне."
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Мария Петрова</CardTitle>
-                    <div className="flex text-secondary mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Icon key={i} name="Star" size={16} fill="currentColor" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  "Приобрела свиток с живописью. Восхитительная работа! Эксперты помогли с оформлением и рассказали всю историю предмета. Сервис на высшем уровне."
-                </p>
-              </CardContent>
-            </Card>
+                </>
+              );
+            })()}
           </div>
 
           {/* Link to all reviews */}

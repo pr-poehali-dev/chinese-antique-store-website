@@ -36,7 +36,7 @@ export const catalogData: Record<string, CatalogItem[]> = {
     { id: 24, name: 'Статуя Гуаньинь бронзовая', price: '298 000', period: 'XVI век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7529fb9b-5365-4f3b-a33c-9eb4150591b2.jpg' },
   ],
   painting: [
-    { id: 4, name: 'Свиток с горным пейзажем', price: '156 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/01132f1e-1762-491e-bd7d-4fa86ef8f8e0.jpg' },
+    { id: 4, name: 'Свиток с горным пейзажем', price: '156 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/147ce539-7acd-403e-aca8-9cd9d8178956.jpg' },
     { id: 14, name: 'Каллиграфия мастера Чжао', price: '289 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f61dc847-8b47-4d45-b47b-843cd2b2af0a.jpg' },
     { id: 15, name: 'Свиток с цветами и птицами', price: '178 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d59e3de5-f520-45ca-93b0-8a51ad09711d.jpg' },
     { id: 25, name: 'Веер с живописью тушью', price: '67 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/592416c5-4e24-4558-9d3d-9ff22681ae5f.jpg' },
@@ -50,7 +50,7 @@ export const catalogData: Record<string, CatalogItem[]> = {
     { id: 28, name: 'Подставка под благовония', price: '34 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2ab6e103-7bda-41da-b762-80444d1e66b2.jpg' },
   ],
   enamel: [
-    { id: 6, name: 'Перегородчатая эмаль клуазоне', price: '112 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/8091596e-e2cc-4ba5-bc7f-2644ff30c664.jpg' },
+    { id: 6, name: 'Перегородчатая эмаль клуазоне', price: '112 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/fdee163c-93c9-44b1-a9d9-9ccc4be74355.jpg' },
     { id: 18, name: 'Ваза клуазоне с драконами', price: '198 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d0515dd2-eee0-4b0a-93b5-c8b92ec54bac.jpg' },
     { id: 29, name: 'Чайник эмалевый цветочный', price: '134 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/c0244849-78ff-45d1-be42-4c9b4108347b.jpg' },
     { id: 30, name: 'Блюдо клуазоне большое', price: '178 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1a4e28be-5561-4580-bfbe-efd35e77563d.jpg' },

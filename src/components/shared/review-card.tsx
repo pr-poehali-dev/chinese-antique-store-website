@@ -39,7 +39,7 @@ export const ReviewCard = ({ name, rating, date, text, verified = true, delay = 
                 key={i}
                 name="Star"
                 size={16}
-                className={i < rating ? 'text-gold fill-gold' : 'text-muted'}
+                className={i < rating ? 'text-secondary fill-secondary' : 'text-muted'}
               />
             ))}
           </div>
