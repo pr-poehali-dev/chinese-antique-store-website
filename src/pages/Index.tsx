@@ -14,49 +14,49 @@ const catalogItems = [
     id: 1,
     name: 'Ваза с драконами династии Мин',
     description: 'Фарфоровая ваза с росписью синим кобальтом. Изображение драконов в облаках — символ императорской власти.',
-    price: '128,000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2e1518a1-eb0e-425b-a53d-829fd86ef1ea.jpg',
-    period: 'XV век, династия Мин'
+    price: '128 000',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7498533b-cd31-4299-a6ba-592871bafb18.jpg',
+    period: 'XV век'
   },
   {
     id: 2,
     name: 'Нефритовый Будда',
     description: 'Статуя из цельного куска зелёного нефрита. Тончайшая резьба, проработка деталей одеяний и черт лица.',
-    price: '245,000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/f50c2c77-6fd6-4a76-9c5e-54002a5c0e6b.jpg',
-    period: 'XVIII век, династия Цин'
+    price: '245 000',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/3d3a6fc2-d1e9-48b5-9c0b-0e601fdde4ec.jpg',
+    period: 'XVIII век'
   },
   {
     id: 3,
     name: 'Бронзовая курильница с драконами',
     description: 'Курильница для благовоний с ручками в виде драконов. Благородная патина, сохранившая первозданный вид.',
-    price: '89,500',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/7c2996c3-1e7f-46e8-b5cd-ddca4f50d0a2.jpg',
-    period: 'XVII век, династия Цин'
+    price: '89 500',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/934c9e8b-1f3f-4df6-b09f-69e666982422.jpg',
+    period: 'XVII век'
   },
   {
     id: 4,
     name: 'Свиток с горным пейзажем',
     description: 'Живопись тушью на шёлке. Классический пейзаж в стиле шань-шуй с горами, водопадом и павильоном.',
-    price: '156,000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/2fef96fa-fca1-455d-ba2c-8c2872105bf6.jpg',
+    price: '156 000',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/4bb1dc5b-a792-4501-a4c4-ce0e972071b1.jpg',
     period: 'XIX век'
   },
   {
     id: 5,
     name: 'Резная панель с фениксом',
     description: 'Деревянная панель с резьбой, покрытая красным лаком. Изображение феникса среди цветов пионов.',
-    price: '67,000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1dbb28f4-226a-440a-a46c-15f668473e02.jpg',
+    price: '67 000',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/0f4c5e21-0675-4b56-ac42-3559fb3c0d9a.jpg',
     period: 'XVIII век'
   },
   {
     id: 6,
     name: 'Перегородчатая эмаль клуазоне',
     description: 'Ваза с цветочным орнаментом, выполненная в технике перегородчатой эмали. Яркие краски сохранились идеально.',
-    price: '112,000',
-    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/00584e49-4b26-4c52-868a-0a7a821999d7.jpg',
-    period: 'XIX век, династия Цин'
+    price: '112 000',
+    image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/8091596e-e2cc-4ba5-bc7f-2644ff30c664.jpg',
+    period: 'XIX век'
   }
 ];
 
@@ -407,7 +407,7 @@ const Index = () => {
                     {item.description}
                   </p>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-primary">${item.price}</span>
+                    <span className="text-3xl font-bold text-primary">{item.price} ₽</span>
                   </div>
                 </CardContent>
                 <CardFooter className="pt-0">
