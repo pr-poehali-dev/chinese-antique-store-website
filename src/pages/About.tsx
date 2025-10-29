@@ -49,7 +49,7 @@ const About = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="flex gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Icon name="Users" className="text-primary" size={24} />
@@ -113,7 +113,7 @@ const About = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 rounded-xl bg-primary/5">
-                    <Icon name="TruckIcon" className="text-primary flex-shrink-0 mt-1" size={24} />
+                    <Icon name="Truck" className="text-primary flex-shrink-0 mt-1" size={24} />
                     <div>
                       <div className="font-semibold mb-1">Безопасная доставка</div>
                       <p className="text-sm text-muted-foreground">Специальная упаковка с учётом хрупкости предмета, полное страхование, доставка по всему миру с трекингом.</p>

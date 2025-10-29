@@ -193,7 +193,7 @@ const Index = () => {
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">500+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">1500+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Уникальных предметов</div>
               </div>
               <div className="text-center border-x border-primary/10">
@@ -233,7 +233,7 @@ const Index = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
                   <div className="flex items-start gap-3">
                     <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Icon name="Award" className="text-primary" size={24} />
@@ -272,7 +272,7 @@ const Index = () => {
       </section>
 
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-card to-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Преимущества
@@ -283,7 +283,7 @@ const Index = () => {
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <Card className="border-0 shadow-xl bg-card hover:shadow-2xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-5">
@@ -329,7 +329,7 @@ const Index = () => {
             <Card className="border-0 shadow-xl bg-card hover:shadow-2xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 flex items-center justify-center mb-5">
-                  <Icon name="TruckIcon" className="text-secondary" size={32} />
+                  <Icon name="Truck" className="text-secondary" size={32} />
                 </div>
                 <CardTitle className="text-2xl mb-3">Безопасная доставка</CardTitle>
               </CardHeader>
@@ -386,7 +386,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
             {catalogItems.map((item) => (
               <Card key={item.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card">
                 <div className="relative overflow-hidden aspect-square bg-muted">
@@ -446,7 +446,7 @@ const Index = () => {
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             <Card className="border-0 shadow-xl bg-card">
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
@@ -607,8 +607,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-b from-card to-background">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-card to-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               FAQ

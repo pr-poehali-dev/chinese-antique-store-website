@@ -141,7 +141,7 @@ const Reviews = () => {
               </CardContent>
             </Card>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {reviewsData.map((review) => (
                 <Card key={review.id} className="border-0 shadow-xl bg-card hover:shadow-2xl transition-shadow">
                   <CardHeader>

@@ -133,7 +133,7 @@ const Contacts = () => {
               </section>
 
               <section>
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                   <Card className="border-0 shadow-xl bg-card">
                     <CardHeader>
                       <CardTitle className="text-2xl flex items-center gap-3">
