@@ -104,6 +104,10 @@ const Index = () => {
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.03) 0%, transparent 50%)',
         }}></div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l5 15h15l-12 9 5 15-13-9-13 9 5-15-12-9h15z' fill='%23dc143c' fill-opacity='1'/%3E%3C/svg%3E")`,
+          backgroundSize: '120px 120px'
+        }}></div>
         
         <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
@@ -164,7 +168,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-16 sm:py-24 lg:py-32 bg-card">
+      <section id="about" className="py-20 sm:py-28 lg:py-36 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -226,7 +230,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-b from-card to-background">
+      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
@@ -326,7 +330,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="catalog" className="py-16 sm:py-24 lg:py-32 bg-card">
+      <section id="catalog" className="py-20 sm:py-28 lg:py-36 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
@@ -387,7 +391,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-card to-background">
+      <section id="reviews" className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
@@ -399,7 +403,7 @@ const Index = () => {
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             <Card className="border-0 shadow-xl bg-card">
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
@@ -468,11 +472,34 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+
+            <Card className="border-0 shadow-xl bg-card">
+              <CardHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                    МП
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Мария Петрова</CardTitle>
+                    <div className="flex text-secondary mt-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Icon key={i} name="Star" size={16} fill="currentColor" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  "Приобрела свиток с живописью. Восхитительная работа! Эксперты помогли с оформлением и рассказали всю историю предмета. Сервис на высшем уровне."
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-card">
+      <section id="contact" className="py-20 sm:py-28 lg:py-36 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
