@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import { Link } from 'react-router-dom';
 
 const catalogItems = [
   {
@@ -82,12 +83,17 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-primary/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-card/95 via-card/80 to-card/95"></div>
-        <div className="absolute inset-0 opacity-[0.15]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='80' viewBox='0 0 120 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23dc143c' stroke-width='1'%3E%3Cpath d='M20 40 Q 30 20, 40 40 T 60 40' opacity='0.4'/%3E%3Cpath d='M60 40 Q 70 20, 80 40 T 100 40' opacity='0.4'/%3E%3Ccircle cx='40' cy='40' r='8' fill='%23daa520' opacity='0.3'/%3E%3Ccircle cx='80' cy='40' r='8' fill='%23daa520' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '240px 80px',
-          backgroundPosition: 'center',
+        <div className="absolute left-0 top-0 bottom-0 w-48 opacity-20" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='80' viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,40 Q30,20 40,40 T60,40 L60,45 Q50,25 40,45 T20,45 Z' fill='%23dc143c'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23daa520'/%3E%3C/svg%3E")`,
+          backgroundSize: '100px 80px',
           backgroundRepeat: 'repeat-x'
         }}></div>
+        <div className="absolute right-0 top-0 bottom-0 w-48 opacity-20 scale-x-[-1]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='80' viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,40 Q30,20 40,40 T60,40 L60,45 Q50,25 40,45 T20,45 Z' fill='%23dc143c'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23daa520'/%3E%3C/svg%3E")`,
+          backgroundSize: '100px 80px',
+          backgroundRepeat: 'repeat-x'
+        }}></div>
+        
         <nav className="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-10">
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2">
             <span className="text-2xl sm:text-3xl">🐉</span>
@@ -99,8 +105,8 @@ const Index = () => {
           
           <ul className="hidden lg:flex gap-8 text-sm font-medium text-foreground/80">
             <li><button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">О магазине</button></li>
-            <li><button onClick={() => scrollToSection('catalog')} className="hover:text-primary transition-colors">Каталог</button></li>
-            <li><button onClick={() => scrollToSection('reviews')} className="hover:text-primary transition-colors">Отзывы</button></li>
+            <li><Link to="/catalog" className="hover:text-primary transition-colors">Каталог</Link></li>
+            <li><Link to="/reviews" className="hover:text-primary transition-colors">Отзывы</Link></li>
             <li><button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Контакты</button></li>
           </ul>
 
@@ -120,12 +126,12 @@ const Index = () => {
                   <button onClick={() => scrollToSection('about')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
                     О магазине
                   </button>
-                  <button onClick={() => scrollToSection('catalog')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
+                  <Link to="/catalog" className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
                     Каталог
-                  </button>
-                  <button onClick={() => scrollToSection('reviews')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
+                  </Link>
+                  <Link to="/reviews" className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
                     Отзывы
-                  </button>
+                  </Link>
                   <button onClick={() => scrollToSection('contact')} className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
                     Контакты
                   </button>
@@ -422,10 +428,12 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-16">
-            <Button size="lg" variant="outline" className="px-10">
-              Смотреть весь каталог
-              <Icon name="ArrowRight" className="ml-2" size={18} />
-            </Button>
+            <Link to="/catalog">
+              <Button size="lg" variant="outline" className="px-10">
+                Смотреть весь каталог
+                <Icon name="ArrowRight" className="ml-2" size={18} />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
