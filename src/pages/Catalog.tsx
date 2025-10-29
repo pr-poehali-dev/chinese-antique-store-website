@@ -50,7 +50,7 @@ const catalogData = {
     { id: 6, name: 'Перегородчатая эмаль клуазоне', price: '112 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/8091596e-e2cc-4ba5-bc7f-2644ff30c664.jpg' },
     { id: 18, name: 'Ваза клуазоне с драконами', price: '198 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d0515dd2-eee0-4b0a-93b5-c8b92ec54bac.jpg' },
     { id: 29, name: 'Чайник эмалевый цветочный', price: '134 000', period: 'XIX век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/c0244849-78ff-45d1-be42-4c9b4108347b.jpg' },
-    { id: 30, name: 'Блюдо клуазоне большое', price: '178 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d09dbf06-be51-4a6d-ae44-de0ea733a6b3.jpg' },
+    { id: 30, name: 'Блюдо клуазоне большое', price: '178 000', period: 'XVIII век', image: 'https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/1a4e28be-5561-4580-bfbe-efd35e77563d.jpg' },
   ],
 };
 
@@ -69,6 +69,7 @@ const Catalog = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('name');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCentury, setSelectedCentury] = useState('all');
 
   const getAllItems = () => {
     if (selectedCategory === 'all') {
@@ -78,7 +79,11 @@ const Catalog = () => {
   };
 
   const filteredItems = getAllItems()
-    .filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    .filter(item => {
+      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCentury = selectedCentury === 'all' || item.period.includes(selectedCentury);
+      return matchesSearch && matchesCentury;
+    })
     .sort((a, b) => {
       if (sortBy === 'price-asc') return parseInt(a.price.replace(/ /g, '')) - parseInt(b.price.replace(/ /g, ''));
       if (sortBy === 'price-desc') return parseInt(b.price.replace(/ /g, '')) - parseInt(a.price.replace(/ /g, ''));
@@ -99,7 +104,7 @@ const Catalog = () => {
               <p className="text-lg text-muted-foreground">Более 1500 уникальных предметов китайского искусства</p>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-6 mb-8">
+            <div className="flex flex-col lg:flex-row gap-4 mb-8">
               <div className="flex-1">
                 <Input
                   placeholder="Поиск по названию..."
@@ -108,6 +113,19 @@ const Catalog = () => {
                   className="w-full"
                 />
               </div>
+              <Select value={selectedCentury} onValueChange={setSelectedCentury}>
+                <SelectTrigger className="w-full lg:w-[180px]">
+                  <SelectValue placeholder="Век" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Все века</SelectItem>
+                  <SelectItem value="XV">ⅩⅤ век</SelectItem>
+                  <SelectItem value="XVI">ⅩⅤI век</SelectItem>
+                  <SelectItem value="XVII">ⅩⅤII век</SelectItem>
+                  <SelectItem value="XVIII">ⅩⅤIII век</SelectItem>
+                  <SelectItem value="XIX">ⅩIⅩ век</SelectItem>
+                </SelectContent>
+              </Select>
               <Select value={sortBy} onValueChange={setSortBy}>
                 <SelectTrigger className="w-full lg:w-[200px]">
                   <SelectValue placeholder="Сортировка" />

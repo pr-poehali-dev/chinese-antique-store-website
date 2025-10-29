@@ -34,16 +34,49 @@ export const Header = () => {
         backgroundPosition: 'center'
       }}></div>
       
-      <nav className="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-10">
-        <button onClick={handleLogoClick} className="flex items-center gap-2">
-          <span className="text-2xl sm:text-3xl">🐉</span>
+      {/* Top info bar - desktop only */}
+      <div className="hidden xl:block border-b border-primary/5 relative z-10">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between py-2.5 text-sm">
+            <div className="flex items-center gap-6 text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Icon name="Phone" size={16} className="text-primary" />
+                <span>+7 (495) 123-45-67</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Mail" size={16} className="text-primary" />
+                <span>info@luntang-antiques.ru</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Clock" size={16} className="text-primary" />
+                <span>Пн-Пт: 10:00 - 19:00, Сб: 11:00 - 17:00</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Icon name="Award" size={16} className="text-gold" />
+                <span className="text-xs font-medium">15 лет экспертизы</span>
+              </div>
+              <div className="w-px h-4 bg-border"></div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Icon name="Star" size={16} className="text-gold fill-gold" />
+                <span className="text-xs font-medium">Рейтинг 4.8/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <nav className="container mx-auto px-4 sm:px-6 py-4 xl:py-5 flex items-center justify-between relative z-10">
+        <button onClick={handleLogoClick} className="flex items-center gap-3 group">
+          <div className="text-3xl sm:text-4xl transition-transform group-hover:scale-110 duration-300">🐉</div>
           <div>
-            <div className="text-lg sm:text-xl font-bold text-primary tracking-tight">龍潭古董</div>
-            <div className="text-xs text-muted-foreground -mt-0.5 hidden sm:block">Лун Тан</div>
+            <div className="text-xl sm:text-2xl font-bold text-primary tracking-tight">龍潭古董</div>
+            <div className="text-xs text-muted-foreground -mt-0.5 hidden sm:block">Лун Тан • Китайский Антиквариат</div>
           </div>
         </button>
         
-        <ul className="hidden lg:flex gap-8 text-sm font-medium text-foreground/80">
+        <ul className="hidden lg:flex gap-8 xl:gap-10 text-sm font-medium text-foreground/80">
           <li>
             <Link 
               to="/" 
