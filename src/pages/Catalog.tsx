@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useNavigate } from 'react-router-dom';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
+import Icon from '@/components/ui/icon';
 
 const catalogData = {
   'porcelain': [
