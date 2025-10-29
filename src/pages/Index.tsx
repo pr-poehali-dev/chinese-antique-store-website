@@ -4,10 +4,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
+import { Header } from '@/components/ui/header';
+import { Footer } from '@/components/ui/footer';
 
 const catalogItems = [
   {
@@ -62,7 +63,6 @@ const catalogItems = [
 
 const Index = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -76,70 +76,11 @@ const Index = () => {
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMobileMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-primary/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-card/95"></div>
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-96 opacity-[0.08]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='80' viewBox='0 0 200 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dc143c'%3E%3Cpath d='M100,15 L105,25 L115,25 L107,32 L110,42 L100,35 L90,42 L93,32 L85,25 L95,25 Z'/%3E%3Cpath d='M70,40 Q75,30 80,40 T90,40' fill='none' stroke='%23dc143c' stroke-width='1.5'/%3E%3Cpath d='M110,40 Q115,30 120,40 T130,40' fill='none' stroke='%23dc143c' stroke-width='1.5'/%3E%3Ccircle cx='65' cy='40' r='4' fill='%23daa520'/%3E%3Ccircle cx='135' cy='40' r='4' fill='%23daa520'/%3E%3Cpath d='M95,55 L97,60 L102,60 L98,63 L100,68 L95,65 L90,68 L92,63 L88,60 L93,60 Z' fill='%23daa520' opacity='0.6'/%3E%3Cpath d='M105,55 L107,60 L112,60 L108,63 L110,68 L105,65 L100,68 L102,63 L98,60 L103,60 Z' fill='%23daa520' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '200px 80px',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }}></div>
-        
-        <nav className="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-10">
-          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2">
-            <span className="text-2xl sm:text-3xl">🐉</span>
-            <div>
-              <div className="text-lg sm:text-xl font-bold text-primary tracking-tight">龍潭古董</div>
-              <div className="text-xs text-muted-foreground -mt-0.5 hidden sm:block">Лун Тан</div>
-            </div>
-          </button>
-          
-          <ul className="hidden lg:flex gap-8 text-sm font-medium text-foreground/80">
-            <li><Link to="/about" className="hover:text-primary transition-colors">О магазине</Link></li>
-            <li><Link to="/catalog" className="hover:text-primary transition-colors">Каталог</Link></li>
-            <li><Link to="/reviews" className="hover:text-primary transition-colors">Отзывы</Link></li>
-            <li><Link to="/contacts" className="hover:text-primary transition-colors">Контакты</Link></li>
-          </ul>
-
-          <div className="flex items-center gap-3">
-            <Button onClick={() => scrollToSection('contact')} size="default" className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground">
-              Связаться
-            </Button>
-            
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden">
-                  <Icon name="Menu" size={24} />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[320px]">
-                <div className="flex flex-col gap-6 mt-8">
-                  <Link to="/about" className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
-                    О магазине
-                  </Link>
-                  <Link to="/catalog" className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
-                    Каталог
-                  </Link>
-                  <Link to="/reviews" className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
-                    Отзывы
-                  </Link>
-                  <Link to="/contacts" className="text-left text-lg font-medium hover:text-primary transition-colors py-2">
-                    Контакты
-                  </Link>
-                  <Button onClick={() => scrollToSection('contact')} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-4">
-                    Связаться
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       <section id="hero" className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/5">
         <div className="absolute inset-0" style={{
@@ -678,71 +619,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-gradient-to-b from-foreground to-foreground/95 text-background py-12 sm:py-16 lg:py-20 border-t-4 border-primary">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
-            <div>
-              <div className="flex items-center gap-2 mb-5">
-                <span className="text-4xl">🐉</span>
-                <div>
-                  <div className="text-2xl font-bold">龍潭古董</div>
-                  <div className="text-xs opacity-70">Лун Тан</div>
-                </div>
-              </div>
-              <p className="text-sm opacity-80 leading-relaxed">
-                Эксклюзивный китайский антиквариат императорского уровня с подтверждённой историей.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-bold text-lg mb-5 text-secondary">Навигация</h3>
-              <ul className="space-y-3 text-sm opacity-80">
-                <li><button onClick={() => scrollToSection('about')} className="hover:opacity-100 hover:text-secondary transition-all">О магазине</button></li>
-                <li><button onClick={() => scrollToSection('catalog')} className="hover:opacity-100 hover:text-secondary transition-all">Каталог</button></li>
-                <li><button onClick={() => scrollToSection('reviews')} className="hover:opacity-100 hover:text-secondary transition-all">Отзывы</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:opacity-100 hover:text-secondary transition-all">Контакты</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-lg mb-5 text-secondary">Контакты</h3>
-              <ul className="space-y-3 text-sm opacity-80">
-                <li className="flex items-center gap-2 hover:opacity-100 transition-opacity">
-                  <Icon name="Mail" size={16} />
-                  info@luntan.ru
-                </li>
-                <li className="flex items-center gap-2 hover:opacity-100 transition-opacity">
-                  <Icon name="Phone" size={16} />
-                  +7 (495) 123-45-67
-                </li>
-                <li className="flex items-center gap-2 hover:opacity-100 transition-opacity">
-                  <Icon name="MapPin" size={16} />
-                  Москва, ул. Арбат, 12
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-lg mb-5 text-secondary">Соцсети</h3>
-              <div className="flex gap-3">
-                <a href="#" className="w-11 h-11 bg-background/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
-                  <Icon name="Instagram" size={20} />
-                </a>
-                <a href="#" className="w-11 h-11 bg-background/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
-                  <Icon name="Facebook" size={20} />
-                </a>
-                <a href="#" className="w-11 h-11 bg-background/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
-                  <Icon name="MessageCircle" size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-background/20 pt-10 text-center text-sm opacity-70">
-            <p>&copy; 2024 龍潭古董 Лун Тан. Все права защищены.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
