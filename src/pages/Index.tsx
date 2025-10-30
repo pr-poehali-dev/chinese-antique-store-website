@@ -192,7 +192,7 @@ const Index = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                  <AnimatedSection animation="fade-in-up" delay={300}>
+                  <AnimatedSection animation="fade-in-up">
                     <div className="flex items-start gap-3">
                       <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Icon name="Award" className="text-primary" size={24} />
@@ -203,7 +203,7 @@ const Index = () => {
                       </div>
                     </div>
                   </AnimatedSection>
-                  <AnimatedSection animation="fade-in-up" delay={400}>
+                  <AnimatedSection animation="fade-in-up">
                     <div className="flex items-start gap-3">
                       <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Icon name="Globe" className="text-primary" size={24} />
@@ -217,7 +217,7 @@ const Index = () => {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection animation="slide-in-right" delay={200} className="relative">
+              <AnimatedSection animation="slide-in-right" className="relative">
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                   <img 
                     src="https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d064df74-8098-4e2f-955a-2d35418908d3.jpg" 
@@ -372,7 +372,7 @@ const Index = () => {
             ))}
           </div>
 
-          <AnimatedSection animation="fade-in" delay={800} className="text-center mt-16">
+          <AnimatedSection animation="fade-in" className="text-center mt-16">
             <Link to="/catalog">
               <Button size="lg" variant="outline" className="px-10">
                 Смотреть весь каталог
@@ -425,7 +425,7 @@ const Index = () => {
             ))}
           </div>
 
-          <AnimatedSection animation="fade-in" delay={600} className="text-center mt-12">
+          <AnimatedSection animation="fade-in" className="text-center mt-12">
             <Link to="/reviews">
               <Button variant="outline" size="lg" className="group">
                 Смотреть все отзывы
