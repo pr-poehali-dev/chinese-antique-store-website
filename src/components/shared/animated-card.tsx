@@ -2,16 +2,18 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 
 interface AnimatedCardProps {
   children: ReactNode;
-  index: number;
-  animation?: 'fade-in-up' | 'scale-in';
+  index?: number;
+  animation?: 'fade-in-up' | 'scale-in' | 'slide-in-left' | 'slide-in-right' | 'fade-in';
   className?: string;
+  delay?: number;
 }
 
 export const AnimatedCard = ({ 
   children, 
-  index,
+  index = 0,
   animation = 'scale-in',
-  className = '' 
+  className = '',
+  delay
 }: AnimatedCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -40,7 +42,18 @@ export const AnimatedCard = ({
     };
   }, []);
 
-  const delay = 0.1 + index * 0.1;
+  const animationDelay = delay !== undefined ? delay : 0.1 + index * 0.1;
+
+  const getAnimationName = () => {
+    switch (animation) {
+      case 'fade-in-up': return 'fadeInUp';
+      case 'scale-in': return 'scaleIn';
+      case 'slide-in-left': return 'slideInLeft';
+      case 'slide-in-right': return 'slideInRight';
+      case 'fade-in': return 'fadeIn';
+      default: return 'scaleIn';
+    }
+  };
 
   return (
     <div
@@ -48,7 +61,7 @@ export const AnimatedCard = ({
       className={className}
       style={{
         opacity: 0,
-        animation: isVisible ? `${animation === 'scale-in' ? 'scaleIn' : 'fadeInUp'} 0.5s ease-out ${delay}s forwards` : 'none'
+        animation: isVisible ? `${getAnimationName()} 0.6s ease-out ${animationDelay}s forwards` : 'none'
       }}
     >
       {children}

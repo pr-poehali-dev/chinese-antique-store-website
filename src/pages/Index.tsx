@@ -171,7 +171,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <AnimatedSection animation="slide-in-left" className="space-y-8">
+              <AnimatedCard animation="slide-in-left" delay={0} className="space-y-8">
                 <div>
                   <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                     О магазине
@@ -192,32 +192,28 @@ const Index = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                  <AnimatedSection animation="fade-in-up">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name="Award" className="text-primary" size={24} />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-foreground mb-1">Экспертиза</div>
-                        <div className="text-sm text-muted-foreground">Проверка подлинности</div>
-                      </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Award" className="text-primary" size={24} />
                     </div>
-                  </AnimatedSection>
-                  <AnimatedSection animation="fade-in-up">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon name="Globe" className="text-primary" size={24} />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-foreground mb-1">Доставка</div>
-                        <div className="text-sm text-muted-foreground">По всему миру</div>
-                      </div>
+                    <div>
+                      <div className="font-semibold text-foreground mb-1">Экспертиза</div>
+                      <div className="text-sm text-muted-foreground">Проверка подлинности</div>
                     </div>
-                  </AnimatedSection>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Globe" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-foreground mb-1">Доставка</div>
+                      <div className="text-sm text-muted-foreground">По всему миру</div>
+                    </div>
+                  </div>
                 </div>
-              </AnimatedSection>
+              </AnimatedCard>
 
-              <AnimatedSection animation="slide-in-right" className="relative">
+              <AnimatedCard animation="slide-in-right" delay={0.2} className="relative">
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                   <img 
                     src="https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d064df74-8098-4e2f-955a-2d35418908d3.jpg" 
@@ -227,7 +223,7 @@ const Index = () => {
                 </div>
                 <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
                 <div className="absolute -top-8 -left-8 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10"></div>
-              </AnimatedSection>
+              </AnimatedCard>
             </div>
           </div>
         </div>
