@@ -319,8 +319,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
             {catalogItems.map((item, index) => (
-              <AnimatedSection key={item.id} animation="scale-in" delay={200 + index * 100}>
-              <Card className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card h-full">
+              <Card key={item.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card h-full opacity-0 animate-scale-in" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                 <div className="relative overflow-hidden aspect-square bg-muted">
                   <img 
                     src={item.image} 
@@ -352,7 +351,6 @@ const Index = () => {
                   </Button>
                 </CardFooter>
               </Card>
-              </AnimatedSection>
             ))}
           </div>
 
@@ -382,8 +380,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {reviews.map((review, index) => (
-              <AnimatedSection key={index} animation="fade-in-up" delay={200 + index * 100}>
-              <Card className="border-0 shadow-xl bg-card h-full">
+              <Card key={index} className="border-0 shadow-xl bg-card h-full opacity-0 animate-fade-in-up" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
@@ -405,7 +402,6 @@ const Index = () => {
                   </p>
                 </CardContent>
               </Card>
-              </AnimatedSection>
             ))}
           </div>
 
