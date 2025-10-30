@@ -9,6 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
+import { AnimatedSection } from '@/components/shared';
 
 const catalogItems = [
   {
@@ -170,7 +171,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="space-y-8 opacity-0 animate-slide-in-left">
+              <AnimatedSection animation="slide-in-left" className="space-y-8">
                 <div>
                   <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                     О магазине
@@ -210,9 +211,9 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
-              <div className="relative opacity-0 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
+              <AnimatedSection animation="slide-in-right" delay={200} className="relative">
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                   <img 
                     src="https://cdn.poehali.dev/projects/9fc24e61-f6b1-43ae-a70d-315abb9e00ff/files/d064df74-8098-4e2f-955a-2d35418908d3.jpg" 
@@ -222,7 +223,7 @@ const Index = () => {
                 </div>
                 <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
                 <div className="absolute -top-8 -left-8 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10"></div>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -231,7 +232,7 @@ const Index = () => {
       {/* Benefits Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-20 opacity-0 animate-fade-in">
+          <AnimatedSection animation="fade-in" className="text-center mb-20">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Преимущества
             </div>
@@ -239,9 +240,9 @@ const Index = () => {
               Почему выбирают нас
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <AnimatedSection animation="fade-in" delay={200} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="flex items-start gap-3">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Icon name="Shield" className="text-primary" size={24} />
@@ -296,14 +297,14 @@ const Index = () => {
                 <div className="text-sm text-muted-foreground">Помощь в оценке, реставрации и консультации по коллекционированию.</div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Catalog Section */}
       <section id="catalog" className="py-12 sm:py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16 opacity-0 animate-fade-in">
+          <AnimatedSection animation="fade-in" className="text-center mb-16">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Каталог
             </div>
@@ -314,11 +315,12 @@ const Index = () => {
               Наиболее ценные и востребованные предметы из нашей коллекции
             </p>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
             {catalogItems.map((item, index) => (
-              <Card key={item.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card h-full opacity-0 animate-scale-in" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+              <AnimatedSection key={item.id} animation="scale-in" delay={200 + index * 100}>
+              <Card className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card h-full">
                 <div className="relative overflow-hidden aspect-square bg-muted">
                   <img 
                     src={item.image} 
@@ -350,24 +352,25 @@ const Index = () => {
                   </Button>
                 </CardFooter>
               </Card>
+              </AnimatedSection>
             ))}
           </div>
 
-          <div className="text-center mt-16 opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <AnimatedSection animation="fade-in" delay={800} className="text-center mt-16">
             <Link to="/catalog">
               <Button size="lg" variant="outline" className="px-10">
                 Смотреть весь каталог
                 <Icon name="ArrowRight" className="ml-2" size={18} />
               </Button>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Reviews Section */}
       <section id="reviews" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16 opacity-0 animate-fade-in">
+          <AnimatedSection animation="fade-in" className="text-center mb-16">
             <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
               Отзывы
             </div>
@@ -375,11 +378,12 @@ const Index = () => {
               Что говорят наши клиенты
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {reviews.map((review, index) => (
-              <Card key={index} className="border-0 shadow-xl bg-card h-full opacity-0 animate-fade-in-up" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+              <AnimatedSection key={index} animation="fade-in-up" delay={200 + index * 100}>
+              <Card className="border-0 shadow-xl bg-card h-full">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
@@ -401,17 +405,18 @@ const Index = () => {
                   </p>
                 </CardContent>
               </Card>
+              </AnimatedSection>
             ))}
           </div>
 
-          <div className="text-center mt-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <AnimatedSection animation="fade-in" delay={600} className="text-center mt-12">
             <Link to="/reviews">
               <Button variant="outline" size="lg" className="group">
                 Смотреть все отзывы
                 <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Button>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -419,7 +424,7 @@ const Index = () => {
       <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12 opacity-0 animate-fade-in">
+            <AnimatedSection animation="fade-in" className="text-center mb-12">
               <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                 Контакты
               </div>
@@ -430,9 +435,10 @@ const Index = () => {
                 Наши эксперты помогут подобрать идеальный предмет для вашей коллекции
               </p>
               <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-            </div>
+            </AnimatedSection>
 
-            <Card className="border-0 shadow-2xl opacity-0 animate-scale-in" style={{ animationDelay: '0.2s' }}>
+            <AnimatedSection animation="scale-in" delay={200}>
+            <Card className="border-0 shadow-2xl">
               <CardContent className="p-6 sm:p-10">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -486,6 +492,7 @@ const Index = () => {
                 </form>
               </CardContent>
             </Card>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -494,7 +501,7 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background to-card">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 opacity-0 animate-fade-in">
+            <AnimatedSection animation="fade-in" className="text-center mb-12">
               <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                 FAQ
               </div>
@@ -502,9 +509,10 @@ const Index = () => {
                 Часто задаваемые вопросы
               </h2>
               <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-            </div>
+            </AnimatedSection>
 
-            <Accordion type="single" collapsible className="space-y-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <AnimatedSection animation="fade-in" delay={200}>
+            <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Как проверяется подлинность предметов?
@@ -550,6 +558,7 @@ const Index = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+            </AnimatedSection>
           </div>
         </div>
       </section>
