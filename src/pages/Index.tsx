@@ -242,62 +242,74 @@ const Index = () => {
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </AnimatedSection>
 
-          <AnimatedSection animation="fade-in" delay={200} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Shield" className="text-primary" size={24} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <AnimatedCard index={0} animation="fade-in-up">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon name="Shield" className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground mb-1">Гарантия подлинности</div>
+                  <div className="text-sm text-muted-foreground">Сертификаты и документы на каждый предмет. Экспертиза ведущих специалистов.</div>
+                </div>
               </div>
-              <div>
-                <div className="font-semibold text-foreground mb-1">Гарантия подлинности</div>
-                <div className="text-sm text-muted-foreground">Сертификаты и документы на каждый предмет. Экспертиза ведущих специалистов.</div>
+            </AnimatedCard>
+            <AnimatedCard index={1} animation="fade-in-up">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon name="Award" className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground mb-1">Уникальная коллекция</div>
+                  <div className="text-sm text-muted-foreground">Более 1500 редчайших предметов императорского уровня из династий Мин и Цин.</div>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Award" className="text-primary" size={24} />
+            </AnimatedCard>
+            <AnimatedCard index={2} animation="fade-in-up">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon name="Users" className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground mb-1">Персональный подход</div>
+                  <div className="text-sm text-muted-foreground">Индивидуальные консультации, помощь в формировании коллекций.</div>
+                </div>
               </div>
-              <div>
-                <div className="font-semibold text-foreground mb-1">Уникальная коллекция</div>
-                <div className="text-sm text-muted-foreground">Более 1500 редчайших предметов императорского уровня из династий Мин и Цин.</div>
+            </AnimatedCard>
+            <AnimatedCard index={3} animation="fade-in-up">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon name="Truck" className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground mb-1">Доставка по миру</div>
+                  <div className="text-sm text-muted-foreground">Специальная упаковка и страхование. Доставка в любую точку мира.</div>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Users" className="text-primary" size={24} />
+            </AnimatedCard>
+            <AnimatedCard index={4} animation="fade-in-up">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon name="FileCheck" className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground mb-1">Полная документация</div>
+                  <div className="text-sm text-muted-foreground">Все предметы сопровождаются экспертными заключениями и сертификатами.</div>
+                </div>
               </div>
-              <div>
-                <div className="font-semibold text-foreground mb-1">Персональный подход</div>
-                <div className="text-sm text-muted-foreground">Индивидуальные консультации, помощь в формировании коллекций.</div>
+            </AnimatedCard>
+            <AnimatedCard index={5} animation="fade-in-up">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon name="HeartHandshake" className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="font-semibold text-foreground mb-1">Послепродажная поддержка</div>
+                  <div className="text-sm text-muted-foreground">Помощь в оценке, реставрации и консультации по коллекционированию.</div>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Truck" className="text-primary" size={24} />
-              </div>
-              <div>
-                <div className="font-semibold text-foreground mb-1">Доставка по миру</div>
-                <div className="text-sm text-muted-foreground">Специальная упаковка и страхование. Доставка в любую точку мира.</div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="FileCheck" className="text-primary" size={24} />
-              </div>
-              <div>
-                <div className="font-semibold text-foreground mb-1">Полная документация</div>
-                <div className="text-sm text-muted-foreground">Все предметы сопровождаются экспертными заключениями и сертификатами.</div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="HeartHandshake" className="text-primary" size={24} />
-              </div>
-              <div>
-                <div className="font-semibold text-foreground mb-1">Послепродажная поддержка</div>
-                <div className="text-sm text-muted-foreground">Помощь в оценке, реставрации и консультации по коллекционированию.</div>
-              </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedCard>
+          </div>
         </div>
       </section>
 
