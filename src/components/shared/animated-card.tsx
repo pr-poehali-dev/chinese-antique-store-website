@@ -47,7 +47,7 @@ export const AnimatedCard = ({
       ref={ref}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
+        opacity: 0,
         animation: isVisible ? `${animation === 'scale-in' ? 'scaleIn' : 'fadeInUp'} 0.5s ease-out ${delay}s forwards` : 'none'
       }}
     >
