@@ -192,24 +192,28 @@ const Index = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Icon name="Award" className="text-primary" size={24} />
+                  <AnimatedSection animation="fade-in-up" delay={300}>
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Icon name="Award" className="text-primary" size={24} />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground mb-1">Экспертиза</div>
+                        <div className="text-sm text-muted-foreground">Проверка подлинности</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-semibold text-foreground mb-1">Экспертиза</div>
-                      <div className="text-sm text-muted-foreground">Проверка подлинности</div>
+                  </AnimatedSection>
+                  <AnimatedSection animation="fade-in-up" delay={400}>
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Icon name="Globe" className="text-primary" size={24} />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground mb-1">Доставка</div>
+                        <div className="text-sm text-muted-foreground">По всему миру</div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Icon name="Globe" className="text-primary" size={24} />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground mb-1">Доставка</div>
-                      <div className="text-sm text-muted-foreground">По всему миру</div>
-                    </div>
-                  </div>
+                  </AnimatedSection>
                 </div>
               </AnimatedSection>
 
@@ -438,7 +442,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto">
             <AnimatedSection animation="fade-in" className="text-center mb-12">
               <div className="inline-block text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
-                Контакты
+                Обратная связь
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 Свяжитесь с нами
@@ -449,62 +453,62 @@ const Index = () => {
               <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
             </AnimatedSection>
 
-            <AnimatedSection animation="scale-in" delay={200}>
-            <Card className="border-0 shadow-2xl">
-              <CardContent className="p-6 sm:p-10">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Ваше имя
-                    </label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      placeholder="Иван Иванов"
-                      required
-                      className="w-full"
-                    />
-                  </div>
+            <AnimatedCard index={0} animation="scale-in">
+              <Card className="border-0 shadow-2xl">
+                <CardContent className="p-6 sm:p-10">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        Ваше имя
+                      </label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        placeholder="Иван Иванов"
+                        required
+                        className="w-full"
+                      />
+                    </div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="ivan@example.com"
-                      required
-                      className="w-full"
-                    />
-                  </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                        Email
+                      </label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        placeholder="ivan@example.com"
+                        required
+                        className="w-full"
+                      />
+                    </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Сообщение
-                    </label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      placeholder="Расскажите, что вас интересует..."
-                      required
-                      rows={5}
-                      className="w-full resize-none"
-                    />
-                  </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                        Сообщение
+                      </label>
+                      <Textarea
+                        id="message"
+                        value={formData.message}
+                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        placeholder="Расскажите, что вас интересует..."
+                        required
+                        rows={5}
+                        className="w-full resize-none"
+                      />
+                    </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    Отправить сообщение
-                    <Icon name="Send" className="ml-2" size={18} />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-            </AnimatedSection>
+                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                      Отправить сообщение
+                      <Icon name="Send" className="ml-2" size={18} />
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </AnimatedCard>
           </div>
         </div>
       </section>
@@ -523,54 +527,54 @@ const Index = () => {
               <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
             </AnimatedSection>
 
-            <AnimatedSection animation="fade-in" delay={200}>
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                  Как проверяется подлинность предметов?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
-                  Каждый предмет проходит многоступенчатую экспертизу ведущими специалистами по китайскому антиквариату. Мы используем современные методы датировки и предоставляем сертификаты подлинности с полной документацией о происхождении предмета.
-                </AccordionContent>
-              </AccordionItem>
+            <AnimatedCard index={0} animation="fade-in-up">
+              <Accordion type="single" collapsible className="space-y-4">
+                <AccordionItem value="item-1" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                    Как проверяется подлинность предметов?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
+                    Каждый предмет проходит многоступенчатую экспертизу ведущими специалистами по китайскому антиквариату. Мы используем современные методы датировки и предоставляем сертификаты подлинности с полной документацией о происхождении предмета.
+                  </AccordionContent>
+                </AccordionItem>
 
-              <AccordionItem value="item-2" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                  Какие гарантии вы предоставляете?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
-                  Мы предоставляем пожизненную гарантию подлинности на каждый проданный предмет. В случае если независимая экспертиза выявит несоответствие, мы вернём полную стоимость покупки. Все предметы застрахованы при доставке.
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem value="item-2" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                    Какие гарантии вы предоставляете?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
+                    Мы предоставляем пожизненную гарантию подлинности на каждый проданный предмет. В случае если независимая экспертиза выявит несоответствие, мы вернём полную стоимость покупки. Все предметы застрахованы при доставке.
+                  </AccordionContent>
+                </AccordionItem>
 
-              <AccordionItem value="item-3" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                  Как происходит доставка?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
-                  Доставка по всему миру через проверенные компании. Специальная защитная упаковка и страхование на полную стоимость. Стоимость рассчитывается индивидуально. Для покупок от $10,000 доставка по России бесплатная.
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem value="item-3" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                    Как происходит доставка?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
+                    Доставка по всему миру через проверенные компании. Специальная защитная упаковка и страхование на полную стоимость. Стоимость рассчитывается индивидуально. Для покупок от $10,000 доставка по России бесплатная.
+                  </AccordionContent>
+                </AccordionItem>
 
-              <AccordionItem value="item-4" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                  Можно ли купить в рассрочку?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
-                  Да, для покупок от $5,000 предлагаем рассрочку без процентов до 12 месяцев. Возможны специальные условия для постоянных клиентов и при формировании больших коллекций.
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem value="item-4" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                    Можно ли купить в рассрочку?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
+                    Да, для покупок от $5,000 предлагаем рассрочку без процентов до 12 месяцев. Возможны специальные условия для постоянных клиентов и при формировании больших коллекций.
+                  </AccordionContent>
+                </AccordionItem>
 
-              <AccordionItem value="item-5" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                  Помогаете ли с оценкой коллекции?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
-                  Да, предоставляем услуги оценки и экспертизы китайского антиквариата. Детальный анализ, определение подлинности, датировки и рыночной стоимости. Первичная консультация бесплатна.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-            </AnimatedSection>
+                <AccordionItem value="item-5" className="border-0 rounded-2xl px-4 sm:px-6 lg:px-8 py-2 bg-card shadow-lg">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                    Помогаете ли с оценкой коллекции?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2">
+                    Да, предоставляем услуги оценки и экспертизы китайского антиквариата. Детальный анализ, определение подлинности, датировки и рыночной стоимости. Первичная консультация бесплатна.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AnimatedCard>
           </div>
         </div>
       </section>
