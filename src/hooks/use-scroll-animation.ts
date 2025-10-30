@@ -16,6 +16,25 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     const currentRef = ref.current;
     if (!currentRef) return;
 
+    // Проверка видимости элемента
+    const checkVisibility = () => {
+      if (!currentRef || hasBeenVisible.current) return false;
+      
+      const rect = currentRef.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const isInViewport = rect.top <= windowHeight && rect.bottom >= 0;
+      
+      if (isInViewport) {
+        hasBeenVisible.current = true;
+        setIsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    // Проверяем сразу при монтировании
+    if (checkVisibility()) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasBeenVisible.current) {
@@ -36,25 +55,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
 
     observer.observe(currentRef);
 
-    // Fallback: проверяем начальное состояние
-    const checkInitialVisibility = () => {
-      if (currentRef && !hasBeenVisible.current) {
-        const rect = currentRef.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isInViewport) {
-          hasBeenVisible.current = true;
-          setIsVisible(true);
-          observer.unobserve(currentRef);
-        }
-      }
-    };
-
-    // Проверяем сразу и после небольшой задержки
-    checkInitialVisibility();
-    const timeoutId = setTimeout(checkInitialVisibility, 100);
-
     return () => {
-      clearTimeout(timeoutId);
       observer.disconnect();
     };
   }, [threshold, rootMargin, triggerOnce]);

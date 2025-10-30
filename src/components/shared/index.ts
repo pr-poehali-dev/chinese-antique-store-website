@@ -6,4 +6,5 @@ export { StatCard } from './stat-card';
 export { ReviewCard } from './review-card';
 export { ContactInfoItem } from './contact-info';
 export { AnimatedSection } from './animated-section';
+export { AnimatedCard } from './animated-card';
 export { ParallaxBackground } from './parallax-background';

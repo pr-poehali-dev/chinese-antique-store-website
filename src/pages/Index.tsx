@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
-import { AnimatedSection } from '@/components/shared';
+import { AnimatedSection, AnimatedCard } from '@/components/shared';
 
 const catalogItems = [
   {
@@ -319,38 +319,40 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
             {catalogItems.map((item, index) => (
-              <Card key={item.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card h-full" style={{ opacity: 0, animation: `scaleIn 0.4s ease-out ${0.2 + index * 0.1}s forwards` }}>
-                <div className="relative overflow-hidden aspect-square bg-muted">
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur text-primary-foreground px-4 py-2 rounded-xl text-xs font-semibold shadow-lg">
-                    {item.period}
+              <AnimatedCard key={item.id} index={index} animation="scale-in">
+                <Card className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-card h-full">
+                  <div className="relative overflow-hidden aspect-square bg-muted">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur text-primary-foreground px-4 py-2 rounded-xl text-xs font-semibold shadow-lg">
+                      {item.period}
+                    </div>
                   </div>
-                </div>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-xl leading-tight">{item.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="pb-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                    {item.description}
-                  </p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-primary">{item.price} ₽</span>
-                  </div>
-                </CardContent>
-                <CardFooter className="pt-0">
-                  <Button 
-                    variant="outline" 
-                    className="w-full hover:bg-primary hover:text-primary-foreground transition-all"
-                    onClick={() => scrollToSection('contact')}
-                  >
-                    Запросить информацию
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl leading-tight">{item.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pb-4">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                      {item.description}
+                    </p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-primary">{item.price} ₽</span>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="pt-0">
+                    <Button 
+                      variant="outline" 
+                      className="w-full hover:bg-primary hover:text-primary-foreground transition-all"
+                      onClick={() => scrollToSection('contact')}
+                    >
+                      Запросить информацию
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </AnimatedCard>
             ))}
           </div>
 
@@ -380,28 +382,30 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {reviews.map((review, index) => (
-              <Card key={index} className="border-0 shadow-xl bg-card h-full" style={{ opacity: 0, animation: `fadeInUp 0.5s ease-out ${0.2 + index * 0.1}s forwards` }}>
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-                      {review.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg">{review.name}</CardTitle>
-                      <div className="flex text-secondary mt-1">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <Icon key={i} name="Star" size={16} className="fill-secondary" />
-                        ))}
+              <AnimatedCard key={index} index={index} animation="fade-in-up">
+                <Card className="border-0 shadow-xl bg-card h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+                        {review.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">{review.name}</CardTitle>
+                        <div className="flex text-secondary mt-1">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Icon key={i} name="Star" size={16} className="fill-secondary" />
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {review.text}
-                  </p>
-                </CardContent>
-              </Card>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {review.text}
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
             ))}
           </div>
 
