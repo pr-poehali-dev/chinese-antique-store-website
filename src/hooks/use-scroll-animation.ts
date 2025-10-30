@@ -22,7 +22,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
       
       const rect = currentRef.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      const isInViewport = rect.top <= windowHeight && rect.bottom >= 0;
+      const isInViewport = rect.top <= windowHeight * 1.2 && rect.bottom >= 0;
       
       if (isInViewport) {
         hasBeenVisible.current = true;
@@ -32,8 +32,9 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
       return false;
     };
 
-    // Проверяем сразу при монтировании
-    if (checkVisibility()) return;
+    // Проверяем сразу при монтировании и через небольшую задержку
+    checkVisibility();
+    const timeoutId = setTimeout(checkVisibility, 100);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -56,6 +57,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     observer.observe(currentRef);
 
     return () => {
+      clearTimeout(timeoutId);
       observer.disconnect();
     };
   }, [threshold, rootMargin, triggerOnce]);
