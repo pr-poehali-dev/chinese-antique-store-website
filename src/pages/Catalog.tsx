@@ -21,7 +21,8 @@ const Catalog = () => {
   const filteredItems = getCategoryItems(selectedCategory)
     .filter(item => {
       const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCentury = selectedCentury === 'all' || item.period.includes(selectedCentury);
+      // Точное совпадение века в начале строки period
+      const matchesCentury = selectedCentury === 'all' || item.period.startsWith(selectedCentury);
       return matchesSearch && matchesCentury;
     })
     .sort((a, b) => {
