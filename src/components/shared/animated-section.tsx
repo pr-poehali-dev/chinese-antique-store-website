@@ -22,7 +22,7 @@ export const AnimatedSection = ({
   return (
     <div
       ref={ref}
-      className={`opacity-0 ${className} ${isVisible ? animationClass : ''}`}
+      className={`${!isVisible ? 'opacity-0' : ''} ${className} ${isVisible ? animationClass : ''}`}
       style={isVisible ? delayStyle : undefined}
     >
       {children}
