@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Icon from '@/components/ui/icon';
@@ -19,11 +19,25 @@ export const Header = () => {
   };
 
   const handleLogoClick = () => {
-    navigate('/');
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
     setMobileMenuOpen(false);
   };
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleNavClick = (path: string) => {
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(path);
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
+    }
+    setMobileMenuOpen(false);
+  };
 
   const menuItems = [
     { path: '/', label: 'Главная', icon: 'Home' },
@@ -49,9 +63,9 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {menuItems.map(item => (
-              <Link
+              <button
                 key={item.path}
-                to={item.path}
+                onClick={() => handleNavClick(item.path)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(item.path)
                     ? 'bg-primary/10 text-primary'
@@ -59,7 +73,7 @@ export const Header = () => {
                 }`}
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
           </nav>
 
@@ -102,10 +116,9 @@ export const Header = () => {
                 {/* Mobile Navigation */}
                 <nav className="flex flex-col gap-2 flex-1">
                   {menuItems.map(item => (
-                    <Link
+                    <button
                       key={item.path}
-                      to={item.path}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => handleNavClick(item.path)}
                       className={`flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                         isActive(item.path)
                           ? 'bg-primary/10 text-primary'
@@ -114,7 +127,7 @@ export const Header = () => {
                     >
                       <Icon name={item.icon as any} size={20} />
                       {item.label}
-                    </Link>
+                    </button>
                   ))}
                 </nav>
 
