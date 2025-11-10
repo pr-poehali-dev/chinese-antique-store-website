@@ -1,567 +1,422 @@
 /* ==================== ГЛОБАЛЬНЫЕ СТИЛИ ==================== */
-/* Сброс стандартных отступов для всех элементов */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Размеры элемента включают padding и border */
+  box-sizing: border-box;
 }
 
-/* Основные стили для всей страницы */
 body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif; /* Системные шрифты для лучшей читаемости */
-  line-height: 1.6; /* Межстрочный интервал для комфортного чтения */
-  color: #333; /* Основной цвет текста - темно-серый */
-  background: #fff; /* Белый фон */
+    Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
 }
 
-/* Контейнер для центрирования контента */
 .container {
-  max-width: 1200px; /* Максимальная ширина контента */
-  margin: 0 auto; /* Центрирование по горизонтали */
-  padding: 0 20px; /* Отступы слева и справа */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* ==================== ШАПКА САЙТА ==================== */
-/* Фиксированная шапка, которая остаётся видимой при прокрутке */
 header {
-  background: #8b0000; /* Тёмно-красный фон в императорском стиле */
-  color: #fff; /* Белый текст */
-  padding: 20px 0; /* Вертикальные отступы */
-  position: sticky; /* Фиксируется при прокрутке */
-  top: 0; /* Прилипает к верхней части экрана */
-  z-index: 100; /* Поверх остальных элементов */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+  background: #8b0000;
+  color: #fff;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Контейнер шапки с flexbox для размещения логотипа и навигации */
 header .container {
-  display: flex; /* Flexbox для горизонтального размещения */
-  justify-content: space-between; /* Логотип слева, навигация справа */
-  align-items: center; /* Выравнивание по центру по вертикали */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Логотип магазина */
 .logo {
-  font-size: 24px; /* Крупный размер */
-  font-weight: bold; /* Жирный шрифт */
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* Навигационное меню */
 nav {
-  display: flex; /* Горизонтальное размещение ссылок */
-  gap: 30px; /* Расстояние между ссылками */
+  display: flex;
+  gap: 30px;
 }
 
-/* Ссылки в навигации */
 nav a {
-  color: #fff; /* Белый цвет текста */
-  text-decoration: none; /* Без подчёркивания */
-  transition: opacity 0.3s; /* Плавное изменение прозрачности */
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s;
 }
 
-/* Эффект при наведении на ссылку */
 nav a:hover {
-  opacity: 0.8; /* Лёгкая прозрачность */
+  opacity: 0.8;
 }
 
-/* ==================== ГЛАВНЫЙ ЭКРАН (HERO) ==================== */
-/* Большой заголовочный блок с призывом к действию */
+/* ==================== ГЛАВНЫЙ ЭКРАН ==================== */
 .hero {
-  background: linear-gradient(
-    135deg,
-    #8b0000 0%,
-    #dc143c 100%
-  ); /* Градиент от тёмно-красного к алому */
-  color: #fff; /* Белый текст */
-  text-align: center; /* Центрирование текста */
-  padding: 100px 20px; /* Большие вертикальные отступы */
+  background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
 }
 
-/* Заголовок главного экрана */
 .hero h1 {
-  font-size: 48px; /* Крупный размер */
-  margin-bottom: 20px; /* Отступ снизу */
-  font-weight: 700; /* Очень жирный шрифт */
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-/* Описание под заголовком */
 .hero p {
-  font-size: 20px; /* Средний размер */
-  margin-bottom: 30px; /* Отступ снизу */
-  opacity: 0.9; /* Лёгкая прозрачность */
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
-/* Кнопка призыва к действию */
 .btn {
-  display: inline-block; /* Блочный элемент без переноса */
-  background: #daa520; /* Золотой цвет */
-  color: #000; /* Чёрный текст */
-  padding: 15px 40px; /* Внутренние отступы */
-  text-decoration: none; /* Без подчёркивания */
-  border-radius: 5px; /* Скруглённые углы */
-  font-weight: 600; /* Жирный шрифт */
+  display: inline-block;
+  background: #daa520;
+  color: #000;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
   transition:
     transform 0.3s,
-    box-shadow 0.3s; /* Плавная анимация подъёма и тени */
-  border: none; /* Без границы */
-  cursor: pointer; /* Курсор-указатель */
-  font-size: 16px; /* Размер текста */
+    box-shadow 0.3s;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-/* Эффект при наведении на кнопку */
 .btn:hover {
-  transform: translateY(-2px); /* Подъём на 2 пикселя */
-  box-shadow: 0 5px 20px rgba(218, 165, 32, 0.4); /* Золотая тень */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(218, 165, 32, 0.4);
 }
 
 /* ==================== БЛОК СТАТИСТИКИ ==================== */
-/* Секция с цифрами (1500+ предметов, 15 лет и т.д.) */
 .stats {
-  background: #f8f8f8; /* Светло-серый фон */
-  padding: 40px 20px; /* Вертикальные и горизонтальные отступы */
+  background: #f8f8f8;
+  padding: 40px 20px;
 }
 
-/* Сетка для размещения статистики в 3 колонки */
 .stats .container {
-  display: grid; /* CSS Grid для сетки */
-  grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
-  gap: 30px; /* Расстояние между элементами */
-  text-align: center; /* Центрирование текста */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
 }
 
-/* Большая цифра в статистике */
 .stat-number {
-  font-size: 36px; /* Крупный размер */
-  font-weight: bold; /* Жирный шрифт */
-  color: #8b0000; /* Красный цвет бренда */
-  margin-bottom: 10px; /* Отступ снизу */
+  font-size: 36px;
+  font-weight: bold;
+  color: #8b0000;
+  margin-bottom: 10px;
 }
 
-/* Подпись под цифрой */
 .stat-label {
-  color: #666; /* Серый цвет */
-  font-size: 14px; /* Небольшой размер */
+  color: #666;
+  font-size: 14px;
 }
 
 /* ==================== О МАГАЗИНЕ ==================== */
-/* Секция с описанием магазина */
 .about {
-  padding: 80px 20px; /* Большие вертикальные отступы */
-  background: #fff; /* Белый фон */
+  padding: 80px 20px;
+  background: #fff;
 }
 
-/* Заголовок секции */
 .about h2 {
-  font-size: 36px; /* Крупный размер */
-  text-align: center; /* Центрирование */
-  margin-bottom: 30px; /* Отступ снизу */
-  color: #8b0000; /* Красный цвет бренда */
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #8b0000;
 }
 
-/* Текстовые блоки в секции */
 .about p {
-  max-width: 800px; /* Ограничение ширины для читаемости */
-  margin: 0 auto 20px; /* Центрирование и отступ снизу */
-  font-size: 18px; /* Комфортный размер для чтения */
-  line-height: 1.8; /* Увеличенный межстрочный интервал */
-  color: #555; /* Тёмно-серый цвет */
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
 }
 
 /* ==================== КАТАЛОГ ТОВАРОВ ==================== */
-/* Секция с карточками товаров */
 .catalog {
-  padding: 80px 20px; /* Большие вертикальные отступы */
-  background: #f8f8f8; /* Светло-серый фон */
+  padding: 80px 20px;
+  background: #f8f8f8;
 }
 
-/* Заголовок каталога */
 .catalog h2 {
-  font-size: 36px; /* Крупный размер */
-  text-align: center; /* Центрирование */
-  margin-bottom: 50px; /* Большой отступ снизу */
-  color: #8b0000; /* Красный цвет бренда */
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #8b0000;
 }
 
-/* Сетка для карточек товаров (адаптивная) */
 .catalog-grid {
-  display: grid; /* CSS Grid */
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(300px, 1fr)
-  ); /* Автоматическое заполнение колонок */
-  gap: 30px; /* Расстояние между карточками */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
 }
 
-/* Карточка товара */
 .product-card {
-  background: #fff; /* Белый фон */
-  border-radius: 10px; /* Скруглённые углы */
-  overflow: hidden; /* Обрезка выходящего контента */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Тень для объёма */
-  transition: transform 0.3s; /* Плавная анимация подъёма */
-  display: flex; /* Flexbox для выравнивания содержимого */
-  flex-direction: column; /* Вертикальное расположение элементов */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Эффект при наведении на карточку */
 .product-card:hover {
-  transform: translateY(-5px); /* Подъём на 5 пикселей */
+  transform: translateY(-5px);
 }
 
-/* Изображение товара */
 .product-card img {
-  width: 100%; /* Во всю ширину карточки */
-  height: 300px; /* Фиксированная высота */
-  object-fit: contain; /* Показать изображение полностью без обрезки */
-  background: #f8f8f8; /* Светло-серый фон для пустых областей */
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  background: #f8f8f8;
 }
 
-/* Информация о товаре под изображением */
 .product-info {
-  padding: 20px; /* Внутренние отступы */
-  display: flex; /* Flexbox для выравнивания */
-  flex-direction: column; /* Вертикальное расположение */
-  flex-grow: 1; /* Занимает всё доступное пространство */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-/* Название товара */
 .product-info h3 {
-  font-size: 20px; /* Средний размер */
-  margin-bottom: 10px; /* Отступ снизу */
-  color: #333; /* Тёмно-серый цвет */
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
-/* Описание товара */
 .product-info p {
-  color: #666; /* Серый цвет */
-  font-size: 14px; /* Небольшой размер */
-  margin-bottom: 15px; /* Отступ снизу */
-  flex-grow: 1; /* Занимает всё пространство, выталкивая цену вниз */
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+  flex-grow: 1;
 }
 
-/* Цена товара */
 .price {
-  font-size: 22px; /* Крупный размер */
-  font-weight: bold; /* Жирный шрифт */
-  color: #8b0000; /* Красный цвет бренда */
+  font-size: 22px;
+  font-weight: bold;
+  color: #8b0000;
 }
 
 /* ==================== ОТЗЫВЫ КЛИЕНТОВ ==================== */
-/* Секция с отзывами */
 .reviews {
-  padding: 80px 20px; /* Большие вертикальные отступы */
-  background: #fff; /* Белый фон */
+  padding: 80px 20px;
+  background: #fff;
 }
 
-/* Заголовок секции отзывов */
 .reviews h2 {
-  font-size: 36px; /* Крупный размер */
-  text-align: center; /* Центрирование */
-  margin-bottom: 50px; /* Большой отступ снизу */
-  color: #8b0000; /* Красный цвет бренда */
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #8b0000;
 }
 
-/* Сетка для карточек отзывов (2 в ряд на всех разрешениях, кроме мобильных) */
 .reviews-grid {
-  display: grid; /* CSS Grid */
-  grid-template-columns: repeat(2, 1fr); /* Всегда 2 колонки */
-  gap: 30px; /* Расстояние между отзывами */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* Карточка отзыва */
 .review-card {
-  background: #f8f8f8; /* Светло-серый фон */
-  padding: 30px; /* Внутренние отступы */
-  border-radius: 10px; /* Скруглённые углы */
-  border-left: 4px solid #daa520; /* Золотая полоска слева */
+  background: #f8f8f8;
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 4px solid #8b0000;
 }
 
-/* Звёзды рейтинга */
-.stars {
-  color: #daa520; /* Золотой цвет */
-  font-size: 20px; /* Средний размер */
-  margin-bottom: 15px; /* Отступ снизу */
-}
-
-/* Текст отзыва */
 .review-card p {
-  color: #555; /* Тёмно-серый цвет */
-  font-size: 16px; /* Комфортный размер для чтения */
-  line-height: 1.6; /* Межстрочный интервал */
-  margin-bottom: 20px; /* Отступ снизу */
+  font-size: 16px;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.7;
 }
 
-/* Имя автора отзыва */
 .author {
-  font-weight: bold; /* Жирный шрифт */
-  color: #333; /* Тёмный цвет */
+  font-weight: bold;
+  color: #333;
 }
 
-/* ==================== ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) ==================== */
-/* Секция с FAQ */
+/* ==================== FAQ ==================== */
 .faq {
-  padding: 80px 20px; /* Большие вертикальные отступы */
-  background: #f8f8f8; /* Светло-серый фон */
+  padding: 80px 20px;
+  background: #f8f8f8;
 }
 
-/* Заголовок секции FAQ */
 .faq h2 {
-  font-size: 36px; /* Крупный размер */
-  text-align: center; /* Центрирование */
-  margin-bottom: 50px; /* Большой отступ снизу */
-  color: #8b0000; /* Красный цвет бренда */
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #8b0000;
 }
 
-/* Список вопросов */
 .faq-list {
-  max-width: 900px; /* Ограничение ширины */
-  margin: 0 auto; /* Центрирование */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Один элемент FAQ (вопрос) */
 .faq-item {
-  background: #fff; /* Белый фон */
-  margin-bottom: 20px; /* Расстояние между вопросами */
-  padding: 25px; /* Внутренние отступы */
-  border-radius: 10px; /* Скруглённые углы */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Лёгкая тень */
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Текст вопроса */
 .faq-item h3 {
-  font-size: 18px; /* Средний размер */
-  color: #333; /* Тёмно-серый цвет */
-  margin: 0; /* Без отступов */
+  font-size: 18px;
+  color: #333;
+  margin: 0;
 }
 
 /* ==================== КОНТАКТЫ ==================== */
-/* Секция с формой обратной связи */
 .contact {
-  padding: 80px 20px; /* Большие вертикальные отступы */
-  background: #fff; /* Белый фон */
+  padding: 80px 20px;
+  background: #fff;
 }
 
-/* Заголовок секции контактов */
 .contact h2 {
-  font-size: 36px; /* Крупный размер */
-  text-align: center; /* Центрирование */
-  margin-bottom: 50px; /* Большой отступ снизу */
-  color: #8b0000; /* Красный цвет бренда */
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #8b0000;
 }
 
-/* Форма обратной связи */
 .contact-form {
-  max-width: 600px; /* Ограничение ширины */
-  margin: 0 auto 40px; /* Центрирование и отступ снизу */
-  display: flex; /* Flexbox для вертикального размещения полей */
-  flex-direction: column; /* Колонка */
-  gap: 20px; /* Расстояние между полями */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Поля ввода и текстовая область */
-.contact-form input,
-.contact-form textarea {
-  padding: 15px; /* Внутренние отступы */
-  border: 1px solid #ddd; /* Светло-серая граница */
-  border-radius: 5px; /* Скруглённые углы */
-  font-size: 16px; /* Размер текста */
-  font-family: inherit; /* Наследование шрифта */
+.form-group {
+  margin-bottom: 20px;
 }
 
-/* Эффект при фокусе на поле */
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none; /* Убираем стандартную обводку */
-  border-color: #8b0000; /* Красная граница */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
 }
 
-/* Контактная информация под формой */
-.contact-info {
-  max-width: 600px; /* Ограничение ширины */
-  margin: 0 auto; /* Центрирование */
-  text-align: center; /* Центрирование текста */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s;
 }
 
-/* Текст контактной информации */
-.contact-info p {
-  margin: 10px 0; /* Вертикальные отступы */
-  font-size: 16px; /* Размер текста */
-  color: #555; /* Серый цвет */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8b0000;
 }
 
-/* ==================== ПОДВАЛ САЙТА (FOOTER) ==================== */
-/* Расширенный футер с несколькими колонками */
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* ==================== ПОДВАЛ ==================== */
 footer {
-  background: #222; /* Тёмно-серый фон */
-  color: #fff; /* Белый текст */
-  padding: 60px 20px 30px; /* Большие отступы сверху, меньше снизу */
+  background: #1a1a1a;
+  color: #fff;
+  padding: 60px 20px 20px;
 }
 
-/* Сетка подвала - 4 колонки на больших экранах */
-.footer-grid {
-  display: grid; /* CSS Grid */
-  grid-template-columns: repeat(4, 1fr); /* 4 равные колонки */
-  gap: 40px; /* Расстояние между колонками */
-  margin-bottom: 40px; /* Отступ снизу перед копирайтом */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
 }
 
-/* Одна колонка в подвале */
-.footer-column {
-  display: flex; /* Flexbox для вертикального размещения */
-  flex-direction: column; /* Колонка */
-  gap: 15px; /* Расстояние между элементами */
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #daa520;
 }
 
-/* Логотип в подвале */
-.footer-logo {
-  display: flex; /* Flexbox для горизонтального размещения иконки и текста */
-  align-items: center; /* Выравнивание по центру */
-  gap: 10px; /* Расстояние между иконкой и текстом */
+.footer-section p,
+.footer-section a {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.8;
+  text-decoration: none;
 }
 
-/* Иконка дракона в логотипе */
-.logo-icon {
-  font-size: 40px; /* Крупный размер эмодзи */
+.footer-section a:hover {
+  color: #daa520;
 }
 
-/* Китайские иероглифы в логотипе */
-.logo-chinese {
-  font-size: 20px; /* Средний размер */
-  font-weight: bold; /* Жирный шрифт */
-}
-
-/* Русское название под иероглифами */
-.logo-russian {
-  font-size: 12px; /* Небольшой размер */
-  opacity: 0.7; /* Прозрачность */
-}
-
-/* Описание под логотипом */
-.footer-description {
-  font-size: 14px; /* Небольшой размер */
-  line-height: 1.6; /* Межстрочный интервал */
-  opacity: 0.8; /* Лёгкая прозрачность */
-}
-
-/* Заголовки колонок в подвале */
-.footer-heading {
-  font-size: 18px; /* Средний размер */
-  font-weight: bold; /* Жирный шрифт */
-  color: #daa520; /* Золотой цвет */
-  margin-bottom: 5px; /* Отступ снизу */
-}
-
-/* Список ссылок в подвале */
 .footer-links {
-  list-style: none; /* Без маркеров */
-  display: flex; /* Flexbox */
-  flex-direction: column; /* Колонка */
-  gap: 10px; /* Расстояние между ссылками */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Ссылки в подвале */
-.footer-links a {
-  color: #fff; /* Белый цвет */
-  text-decoration: none; /* Без подчёркивания */
-  font-size: 14px; /* Небольшой размер */
-  opacity: 0.8; /* Прозрачность */
-  transition:
-    opacity 0.3s,
-    color 0.3s; /* Плавное изменение */
-}
-
-/* Эффект при наведении на ссылку */
-.footer-links a:hover {
-  opacity: 1; /* Полная непрозрачность */
-  color: #daa520; /* Золотой цвет */
-}
-
-/* Список контактов в подвале */
-.footer-contacts {
-  list-style: none; /* Без маркеров */
-  display: flex; /* Flexbox */
-  flex-direction: column; /* Колонка */
-  gap: 10px; /* Расстояние между элементами */
-  font-size: 14px; /* Небольшой размер */
-  opacity: 0.8; /* Прозрачность */
-}
-
-/* Блок социальных сетей */
-.footer-socials {
-  display: flex; /* Flexbox для горизонтального размещения */
-  flex-direction: column; /* Колонка */
-  gap: 10px; /* Расстояние между ссылками */
-}
-
-/* Ссылка на соцсеть */
-.social-link {
-  color: #fff; /* Белый цвет */
-  text-decoration: none; /* Без подчёркивания */
-  font-size: 14px; /* Небольшой размер */
-  opacity: 0.8; /* Прозрачность */
-  transition:
-    opacity 0.3s,
-    color 0.3s; /* Плавное изменение */
-  display: flex; /* Flexbox */
-  align-items: center; /* Выравнивание по центру */
-  gap: 8px; /* Расстояние между эмодзи и текстом */
-}
-
-/* Эффект при наведении на ссылку соцсети */
-.social-link:hover {
-  opacity: 1; /* Полная непрозрачность */
-  color: #daa520; /* Золотой цвет */
-}
-
-/* Нижняя линия подвала с копирайтом */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия сверху */
-  padding-top: 30px; /* Отступ сверху */
-  text-align: center; /* Центрирование текста */
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 14px;
 }
 
-/* Текст копирайта */
-.footer-bottom p {
-  font-size: 14px; /* Небольшой размер */
-  opacity: 0.7; /* Прозрачность */
-}
-
-/* ==================== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ==================== */
-/* Медиа-запрос для экранов меньше 768px (планшеты и телефоны) */
+/* ==================== АДАПТИВНОСТЬ ==================== */
 @media (max-width: 768px) {
-  /* Уменьшаем расстояние между ссылками в навигации */
+  header .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
   nav {
-    gap: 15px; /* Меньше расстояние */
-    font-size: 14px; /* Меньше размер текста */
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
   }
 
-  /* Уменьшаем заголовок на главном экране */
   .hero h1 {
-    font-size: 32px; /* Меньше размер */
+    font-size: 32px;
   }
 
-  /* Уменьшаем описание на главном экране */
   .hero p {
-    font-size: 16px; /* Меньше размер */
+    font-size: 16px;
   }
 
-  /* Статистика в одну колонку */
   .stats .container {
-    grid-template-columns: 1fr; /* Одна колонка */
-    gap: 20px; /* Меньше расстояние */
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  /* Каталог и отзывы в одну колонку */
-  .catalog-grid,
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
   .reviews-grid {
-    grid-template-columns: 1fr; /* Одна колонка */
+    grid-template-columns: 1fr;
   }
 
-  /* Подвал в одну колонку на мобильных */
-  .footer-grid {
-    grid-template-columns: 1fr; /* Одна колонка */
-    gap: 30px; /* Меньше расстояние */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 }
